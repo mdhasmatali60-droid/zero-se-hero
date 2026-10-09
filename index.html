@@ -1,1 +1,83 @@
-<!DOCTYPE html><html lang="hi"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Zero Se Hero</title><style>:root{--bg:#0f0f12;--card:#1c1c21;--accent:#ffbd2e;--green:#2ecc71;--text:#f1f1f1}*{margin:0;padding:0;box-sizing:border-box;font-family:system-ui}body{background:var(--bg);color:var(--text);padding-bottom:80px}header{padding:14px;background:#000;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0} .logo{font-weight:900;color:var(--accent)} .stat{background:var(--card);padding:6px 10px;border-radius:20px;font-size:13px} .grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;padding:12px} .card{background:var(--card);border-radius:16px;padding:14px;border:1px solid #2a2a30} .btn{width:100%;padding:12px;border:0;border-radius:12px;font-weight:800;margin-top:8px} .btn-y{background:var(--accent)} .btn-g{background:var(--green)} .tabs{position:fixed;bottom:0;left:0;right:0;background:#000;display:flex;padding:8px;gap:6px} .tab{flex:1;padding:10px;border-radius:10px;text-align:center;background:var(--card)} .tab.active{background:var(--accent);color:#000;font-weight:800} .slot{display:flex;justify-content:center;gap:8px;font-size:36px;margin:12px} .slot span{background:#000;padding:10px;border-radius:10px} .quiz-opt{width:100%;padding:10px;margin:6px 0;background:#2a2a35;border:0;border-radius:10px;color:#fff;text-align:left}</style></head><body><header><div class="logo">ZERO SE HERO</div><div style="display:flex;gap:8px"><div class="stat">💰 ₹<span id="money">500</span></div><div class="stat">⭐<span id="lvl">1</span></div></div></header><div style="padding:20px;text-align:center"><h1>Chai Wale Se Crorepati Tak</h1><p style="opacity:.6">500 brands, 100 Quiz, 10K Jackpot, Daily Stories</p></div><div id="p-trade"><div class="grid" id="brands"></div></div><div id="p-quiz" style="display:none;padding:12px"><div class="card"><h3 id="qtext"></h3><div id="qopts"></div></div></div><div id="p-slot" style="display:none;padding:12px"><div class="card" style="text-align:center"><h3>💸 GREEDY SLOT JACKPOT ₹10,000 💸</h3><div class="slot"><span id="s1">🍵</span><span id="s2">📦</span><span id="s3">💰</span></div><p style="font-size:12px">Cost ₹100 per spin</p><button class="btn btn-y" onclick="spin()">SPIN 🎰</button><p id="slotmsg"></p></div></div><div id="p-story" style="display:none;padding:12px"><div class="grid" id="stories"></div></div><div class="tabs"><div class="tab active" onclick="show('trade',this)">📈Trade</div><div class="tab" onclick="show('quiz',this)">🧠Quiz</div><div class="tab" onclick="show('slot',this)">🎰Slot</div><div class="tab" onclick="show('story',this)">📚Story</div></div><script>let money=parseInt(localStorage.getItem('m')||500),lvl=parseInt(localStorage.getItem('l')||1),un=parseInt(localStorage.getItem('u')||3);function save(){localStorage.setItem('m',money);localStorage.setItem('l',lvl);localStorage.setItem('u',un);moneyEl.innerText=money;lvlEl.innerText=lvl}const moneyEl=document.getElementById('money'),lvlEl=document.getElementById('lvl');const names=["Chai Point","Lijjat Papad","Balaji Wafers","Paper Boat","ID Fresh","Boat","Mamaearth","Sugar","Zouk","Bombay Shaving","Beardo","Bira","Naagin","Open Secret","Yoga Bar","Mithai Box","SareeKart","Khaadi","P-Tal","Channapatna Toys","Spice Route","Vada Pav Co","Samosa Singh","MBA Chai"];let brands=[];for(let i=0;i<500;i++){brands.push({n:names[i%names.length]+(i>25?' #'+(Math.floor(i/25)+1):''),p:50+Math.floor(Math.random()*950),g:(Math.random()*3-1).toFixed(1)})}function renderB(){let h='';brands.slice(0,30+un).forEach((b,i)=>{h+=`<div class=card><h3 style=font-size:13px>${b.n}</h3><div style=font-size:11px;opacity:.7>₹${b.p} • ${b.g}%/day</div><button class=btn btn-g onclick=buy(${i})>Buy ₹${b.p}</button></div>`});document.getElementById('brands').innerHTML=h}function buy(i){let b=brands[i];if(money>=b.p){money-=b.p;money+=Math.floor(b.p*1.6);lvl++;save();alert('Sold! +60% profit')}else alert('Paisa nahi! Quiz khelo')}const Q=[{q:"Lijjat Papad kisne start kiya?",o:["7 Gujarati Mahilayein","Tata","Ambani"],a:0},{q:"Boat company ka naam?",o:["Imagine Marketing","Ship Ltd","Audio"],a:0},{q:"Paper Boat famous?",o:["Aam Panna","Laptop","Shoes"],a:0},{q:"Zerodha founder?",o:["Nithin Kamath","Ratan Tata","Mallya"],a:0},{q:"Mamaearth kab bani?",o:["2016","1990","2023"],a:0}];for(let i=0;i<95;i++)Q.push({q:`${names[i%names.length]} ka margin?`,o:["10%","30-60%","200%"],a:1});let qi=0;function renderQ(){let q=Q[qi%Q.length];document.getElementById('qtext').innerText=`Q${qi+1}/100: ${q.q}`;let h='';q.o.forEach((o,i)=>h+=`<button class=quiz-opt onclick=ans(${i})>${o}</button>`);document.getElementById('qopts').innerHTML=h}function ans(i){let q=Q[qi%Q.length];if(i==q.a){money+=200;un++;lvl++;save();document.getElementById('qopts').innerHTML='<b style=color:#2ecc71>Sahi! +₹200</b>'}else document.getElementById('qopts').innerHTML='<b style=color:#ff4757>Galat!</b>';setTimeout(()=>{qi++;renderQ();},900)}function spin(){if(money<100){alert('₹100 chahiye');return}money-=100;save();let sym=["🍵","📦","💰","🚀","🧿","💎","🔥","👑"];let r=()=>sym[Math.floor(Math.random()*sym.length)];let a=r(),b=r(),c=r();s1.innerText=a;s2.innerText=b;s3.innerText=c;if(a==b&&b==c){money+=10000;save();slotmsg.innerText='🎉 JACKPOT ₹10,000!';}else if(a==b||b==c||a==c){money+=300;save();slotmsg.innerText='+₹300 jeeta!';}else slotmsg.innerText='Fir koshish kar!'}function renderS(){let list=["Chai wale ne ₹500 se 3 outlet banaye","Papad brand WhatsApp se ₹1L/month","Hostel me Boat jaisa earphone becha","Saree Reels se viral hui","Filter coffee Kirana tie-up","MBA Chai fail hoke crorepati","Kitchen me Epigamia jaisa dahi","Paper Boat copy juice","Mamaearth story se brand"];let h='';for(let i=0;i<un;i++)h+=`<div class=card><h3>Story #${i+1}</h3><p style=font-size:13px>${list[i%list.length]}</p></div>`;document.getElementById('stories').innerHTML=h}function show(t,el){document.getElementById('p-trade').style.display=t=='trade'?'block':'none';document.getElementById('p-quiz').style.display=t=='quiz'?'block':'none';document.getElementById('p-slot').style.display=t=='slot'?'block':'none';document.getElementById('p-story').style.display=t=='story'?'block':'none';document.querySelectorAll('.tab').forEach(x=>x.classList.remove('active'));el.classList.add('active');if(t=='story')renderS()}renderB();renderQ();renderS();save();</script></body></html>
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Zero se Hero - Desi Game</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:system-ui;background:linear-gradient(135deg,#0f0f23,#1a1a40);color:white;min-height:100vh;display:flex;align-items:center;justify-content:center;padding:15px}
+.game{width:100%;max-width:420px;background:rgba(255,255,255,0.05);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,0.1);border-radius:20px;padding:20px;box-shadow:0 20px 40px rgba(0,0,0,0.3)}
+h1{text-align:center;font-size:28px;background:linear-gradient(45deg,#ffd700,#ff6b00);-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:5px}
+.sub{text-align:center;opacity:0.7;margin-bottom:20px;font-size:14px}
+.stats{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-bottom:20px}
+.stat{background:rgba(255,255,255,0.08);padding:12px;border-radius:12px;text-align:center}
+.stat b{display:block;font-size:22px;color:#ffd700}
+.stat span{font-size:11px;opacity:0.7}
+.progress{height:8px;background:rgba(255,255,255,0.1);border-radius:10px;overflow:hidden;margin-bottom:20px}
+.bar{height:100%;width:10%;background:linear-gradient(90deg,#ffd700,#ff6b00);transition:0.5s}
+.question{background:rgba(255,255,255,0.08);padding:15px;border-radius:12px;margin-bottom:15px;font-size:18px;font-weight:600}
+.options{display:grid;gap:10px}
+.btn{background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.1);color:white;padding:14px;border-radius:12px;font-size:16px;cursor:pointer;transition:0.2s}
+.btn:active{transform:scale(0.97)}
+.btn.correct{background:#00c853;border-color:#00c853}
+.btn.wrong{background:#d50000;border-color:#d50000}
+.footer{text-align:center;margin-top:20px;opacity:0.5;font-size:12px}
+</style>
+</head>
+<body>
+<div class="game">
+<h1>ZERO SE HERO</h1>
+<p class="sub">Desi Knowledge Challenge 🔥</p>
+<div class="stats">
+<div class="stat"><b id="score">0</b><span>SCORE</span></div>
+<div class="stat"><b id="level">1</b><span>LEVEL</span></div>
+<div class="stat"><b id="coins">0</b><span>COINS</span></div>
+</div>
+<div class="progress"><div class="bar" id="bar"></div></div>
+<div class="question" id="q">Loading...</div>
+<div class="options" id="opts"></div>
+<div class="footer">Made by Hasmat Ali • Level up to become Hero!</div>
+</div>
+<script>
+const questions=[
+{q:"India ka National Game kya hai?",a:["Hockey","Cricket","Kabaddi","Football"],c:0},
+{q:"Chai me sabse zyada kya use hota hai?",a:["Pani","Doodh","Chini","Patti"],c:3},
+{q:"Bollywood ka Baap kaun?",a:["SRK","Salman","Amitabh","Akshay"],c:2},
+{q:"Zero kisne khoja?",a:["Aryabhata","Newton","Einstein","Tesla"],c:0},
+{q:"Free Fire me Booyah ka matlab?",a:["Jeet","Haar","Draw","Start"],c:0},
+{q:"Instagram kisne banaya?",a:["Mark","Kevin Systrom","Elon","Bill"],c:1},
+{q:"1GB me kitne MB hote hain?",a:["100","1000","1024","512"],c:2},
+{q:"Desi jugaad ka matlab?",a:["Paisa","Trick se kaam","Gaadi","Khana"],c:1},
+{q:"YouTube pe sabse zyada kya dekha jata hai?",a:["Music","Comedy","Gaming","Study"],c:0},
+{q:"Hero banne ke liye kya chahiye?",a:["Paisa","Mehnat","Kismat","Sab kuch"],c:3},
+];
+let idx=0,score=0,level=1,coins=0;
+const qEl=document.getElementById('q'),optsEl=document.getElementById('opts'),scoreEl=document.getElementById('score'),levelEl=document.getElementById('level'),coinsEl=document.getElementById('coins'),barEl=document.getElementById('bar');
+function load(){
+if(idx>=questions.length){idx=0;level++;levelEl.textContent=level;alert("Level Up! Ab tu Level "+level+" pe hai 🔥");}
+const cur=questions[idx];
+qEl.textContent=(idx+1)+". "+cur.q;
+optsEl.innerHTML="";
+cur.a.forEach((opt,i)=>{
+const b=document.createElement('button');
+b.className='btn';b.textContent=opt;
+b.onclick=()=>check(i,b);
+optsEl.appendChild(b);
+});
+barEl.style.width=((idx/questions.length)*100)+"%";
+}
+function check(i,btn){
+const cur=questions[idx];
+const all=document.querySelectorAll('.btn');
+if(i===cur.c){
+btn.classList.add('correct');score+=10;coins+=5;scoreEl.textContent=score;coinsEl.textContent=coins;
+}else{
+btn.classList.add('wrong');all[cur.c].classList.add('correct');
+}
+setTimeout(()=>{idx++;load();},800);
+}
+load();
+</script>
+</body>
+</html>
