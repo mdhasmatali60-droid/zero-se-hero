@@ -1,83 +1,179 @@
 <!DOCTYPE html>
-<html lang="hi">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Zero se Hero - Desi Game</title>
-<style>
-*{margin:0;padding:0;box-sizing:border-box}
-body{font-family:system-ui;background:linear-gradient(135deg,#0f0f23,#1a1a40);color:white;min-height:100vh;display:flex;align-items:center;justify-content:center;padding:15px}
-.game{width:100%;max-width:420px;background:rgba(255,255,255,0.05);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,0.1);border-radius:20px;padding:20px;box-shadow:0 20px 40px rgba(0,0,0,0.3)}
-h1{text-align:center;font-size:28px;background:linear-gradient(45deg,#ffd700,#ff6b00);-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:5px}
-.sub{text-align:center;opacity:0.7;margin-bottom:20px;font-size:14px}
-.stats{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-bottom:20px}
-.stat{background:rgba(255,255,255,0.08);padding:12px;border-radius:12px;text-align:center}
-.stat b{display:block;font-size:22px;color:#ffd700}
-.stat span{font-size:11px;opacity:0.7}
-.progress{height:8px;background:rgba(255,255,255,0.1);border-radius:10px;overflow:hidden;margin-bottom:20px}
-.bar{height:100%;width:10%;background:linear-gradient(90deg,#ffd700,#ff6b00);transition:0.5s}
-.question{background:rgba(255,255,255,0.08);padding:15px;border-radius:12px;margin-bottom:15px;font-size:18px;font-weight:600}
-.options{display:grid;gap:10px}
-.btn{background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.1);color:white;padding:14px;border-radius:12px;font-size:16px;cursor:pointer;transition:0.2s}
-.btn:active{transform:scale(0.97)}
-.btn.correct{background:#00c853;border-color:#00c853}
-.btn.wrong{background:#d50000;border-color:#d50000}
-.footer{text-align:center;margin-top:20px;opacity:0.5;font-size:12px}
-</style>
-</head>
-<body>
-<div class="game">
-<h1>ZERO SE HERO</h1>
-<p class="sub">Desi Knowledge Challenge 🔥</p>
-<div class="stats">
-<div class="stat"><b id="score">0</b><span>SCORE</span></div>
-<div class="stat"><b id="level">1</b><span>LEVEL</span></div>
-<div class="stat"><b id="coins">0</b><span>COINS</span></div>
-</div>
-<div class="progress"><div class="bar" id="bar"></div></div>
-<div class="question" id="q">Loading...</div>
-<div class="options" id="opts"></div>
-<div class="footer">Made by Hasmat Ali • Level up to become Hero!</div>
-</div>
+<html lang="hi"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Zero Se Hero - FINAL 150</title>
+<style>*{margin:0;padding:0;box-sizing:border-box}body{font-family:system-ui;background:linear-gradient(180deg,#0a0a1f,#1a1040,#0f1a3a);color:#fff;min-height:100vh}.app{max-width:430px;margin:0 auto;background:rgba(0,0,0,.3);min-height:100vh;padding-bottom:20px}.cover{width:100%;height:220px;object-fit:cover}.logo{width:100px;height:100px;border-radius:50%;border:4px solid gold;margin:-50px auto 10px;display:block;background:#111;object-fit:cover;box-shadow:0 4px 20px rgba(255,215,0,.6)}h1{text-align:center;font-size:26px;color:gold}.tabs{display:flex;gap:8px;padding:12px}.tab{flex:1;padding:10px;border-radius:12px;background:#ffffff14;text-align:center;cursor:pointer;font-size:10px}.tab.active{background:gold;color:#000;font-weight:800}.card{margin:12px;background:#ffffff0d;border-radius:18px;padding:15px;border:1px solid #ffffff1a}.q{font-weight:700;font-size:14px;margin-bottom:12px;min-height:55px}.opt{width:100%;padding:12px;margin:5px 0;border-radius:12px;background:#ffffff14;border:1px solid #ffffff1a;color:#fff;text-align:left;font-size:12px;cursor:pointer}.opt.ok{background:#00c853!important}.opt.no{background:#d50000!important}.bar{height:7px;background:#ffffff1a;border-radius:10px;overflow:hidden;margin-bottom:12px}.bar div{height:100%;background:linear-gradient(90deg,gold,orange);width:0%;transition:.6s}.wheel{width:260px;height:260px;border-radius:50%;border:7px solid gold;margin:16px auto;position:relative;background:conic-gradient(#ff6b00 0 45deg,gold 45deg 90deg,#1a1a40 90deg 135deg,#00c853 135deg 180deg,#2962ff 180deg 225deg,#d50000 225deg 270deg,#aa00ff 270deg 315deg,#00bcd4 315deg 360deg);transition:transform 4s cubic-bezier(.2,.8,.2,1)}.center{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:66px;height:66px;background:gold;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#000;font-weight:900;cursor:pointer}.btn{width:100%;padding:14px;border-radius:13px;border:none;background:linear-gradient(90deg,gold,orange);font-weight:800;margin-top:12px;cursor:pointer}.cert{position:fixed;inset:0;background:rgba(0,0,0,.92);display:none;align-items:center;justify-content:center;z-index:99;padding:20px}.cert.show{display:flex}.cbox{background:linear-gradient(135deg,#fff,#ffe082);color:#000;border-radius:22px;padding:20px;text-align:center;width:100%;max-width:360px;border:4px solid gold}</style></head><body><div class="app">
+<img class="cover" src="cover.jpg" onerror="this.src='https://via.placeholder.com/430x220/1a1040/FFD700?text=ZERO+to+HERO+FINAL+150'">
+<img class="logo" src="logo.png" onerror="this.src='https://via.placeholder.com/200/FFD700/000?text=👑'">
+<h1>ZERO to HERO</h1><p style="text-align:center;opacity:.7;font-size:9px">ULTIMATE FINAL 150 • BRAND STORY • MATHS • HABITS • SPIN</p>
+<div style="display:flex;gap:8px;padding:12px"><button style="flex:1;padding:10px;border-radius:11px;background:gold;border:0;font-weight:800;font-size:11px" onclick="toggleM()" id="mB">🔊 MUSIC ON</button><button style="flex:1;padding:10px;border-radius:11px;background:#ffffff14;color:#fff;border:0;font-size:11px" onclick="speak('Shabash babua! Ultimate hero!')">🗣️ SHABASH</button></div>
+<div class="tabs"><div class="tab active" id="t0" onclick="tab(0)">📚 LEARN</div><div class="tab" id="t1" onclick="tab(1)">🧠 QUIZ (150)</div><div class="tab" id="t2" onclick="tab(2)">🎡 SPIN</div></div>
+<div class="card" id="c0"><h3 style="color:gold">✏️🧼 20 Local Brand Story - Chhote Se Bade!</h3><p style="font-size:11px;opacity:.85;margin:6px 0">✏️ Nataraj Pencil 10 paise se start karke No.1 bana!<br>🧼 Nirma detergent - Cycle pe bechke crorepati!<br>📦 Parle-G, Haldiram, Amul, MDH sabki kahani!</p><button class="btn" onclick="tab(1)">🔥 150 Quiz Khelo - ULTIMATE FINAL →</button></div>
+<div class="card" id="c1" style="display:none"><div class="bar"><div id="bar"></div></div><div style="display:flex;justify-content:space-between;font-size:11px;margin-bottom:10px;font-weight:600"><span id="qno">1/150</span><span id="sc">Score:0</span><span id="st">🔥0</span></div><div class="q" id="qt">Loading...</div><div id="opts"></div><div id="fmsg" style="text-align:center;font-size:11px;margin-top:10px;opacity:.85;min-height:22px;font-weight:600"></div></div>
+<div class="card" id="c2" style="display:none;text-align:center"><div style="width:0;height:0;border-left:13px solid transparent;border-right:13px solid transparent;border-bottom:22px solid #fff;margin:0 auto"></div><div class="wheel" id="wh"><div class="center" onclick="spin()">SPIN</div></div><button class="btn" onclick="spin()">🎡 ULTIMATE SPIN - iPhone JEETO!</button><div id="spR" style="margin-top:14px;font-weight:800;color:gold;min-height:45px;font-size:14px"></div></div>
+<div class="cert" id="cert"><div class="cbox"><h2>🏆 ULTIMATE 150 CERTIFICATE 🏆</h2><p style="font-weight:700">Zero to Hero - Brand King</p><h3 id="cName" style="margin:12px 0;color:#b8860b">Shabash Babua!</h3><p id="cMsg" style="font-size:12px"></p><p style="font-size:32px;margin:10px 0">✏️🧼👑💎🔥</p><p>Score: <b id="cSc">0</b> / 1500</p><button class="btn" onclick="closeC()">🎡 ULTIMATE SPIN!</button></div></div></div>
+<audio id="bg" loop><source src="https://cdn.pixabay.com/audio/2022/03/15/audio_c8c8a73467.mp3" type="audio/mpeg"></audio>
 <script>
-const questions=[
-{q:"India ka National Game kya hai?",a:["Hockey","Cricket","Kabaddi","Football"],c:0},
-{q:"Chai me sabse zyada kya use hota hai?",a:["Pani","Doodh","Chini","Patti"],c:3},
-{q:"Bollywood ka Baap kaun?",a:["SRK","Salman","Amitabh","Akshay"],c:2},
-{q:"Zero kisne khoja?",a:["Aryabhata","Newton","Einstein","Tesla"],c:0},
-{q:"Free Fire me Booyah ka matlab?",a:["Jeet","Haar","Draw","Start"],c:0},
-{q:"Instagram kisne banaya?",a:["Mark","Kevin Systrom","Elon","Bill"],c:1},
-{q:"1GB me kitne MB hote hain?",a:["100","1000","1024","512"],c:2},
-{q:"Desi jugaad ka matlab?",a:["Paisa","Trick se kaam","Gaadi","Khana"],c:1},
-{q:"YouTube pe sabse zyada kya dekha jata hai?",a:["Music","Comedy","Gaming","Study"],c:0},
-{q:"Hero banne ke liye kya chahiye?",a:["Paisa","Mehnat","Kismat","Sab kuch"],c:3},
+let ctx;function iA(){if(!ctx)ctx=new(window.AudioContext||window.webkitAudioContext)()}
+function tone(f,d){try{iA();let o=ctx.createOscillator(),g=ctx.createGain();o.frequency.value=f;o.connect(g);g.connect(ctx.destination);g.gain.setValueAtTime(0.35,ctx.currentTime);g.gain.exponentialRampToValueAtTime(0.01,ctx.currentTime+d);o.start();o.stop(ctx.currentTime+d)}catch(e){}}
+let mOn=false;function toggleM(){iA();let a=document.getElementById('bg');if(!mOn){a.volume=0.3;a.play().catch(()=>{});document.getElementById('mB').textContent='🔇 OFF';mOn=true}else{a.pause();document.getElementById('mB').textContent='🔊 ON';mOn=false}}
+function speak(t){try{if('speechSynthesis' in window){speechSynthesis.cancel();let u=new SpeechSynthesisUtterance(t);u.lang='hi-IN';u.rate=0.9;speechSynthesis.speak(u)}}catch(e){}}
+function tab(n){document.getElementById('c0').style.display=n==0?'block':'none';document.getElementById('c1').style.display=n==1?'block':'none';document.getElementById('c2').style.display=n==2?'block':'none';document.getElementById('t0').classList.toggle('active',n==0);document.getElementById('t1').classList.toggle('active',n==1);document.getElementById('t2').classList.toggle('active',n==2);if(n==1)load();tone(500,0.15)}
+const Q=[
+{q:"Nataraj Pencil kaise No.1 bana? ✏️",a:["Sasti + achhi quality se sabke bag me pahucha","Mehenga becha","Jadu se"],c:0,f:"Sasti quality = Sabke paas! Zero se Hero!"},
+{q:"Apsara Pencil ka jadoo kya tha? ✨",a:["Extra dark likhai - bacche bole wah!","Mehenga","Kuch nahi"],c:0,f:"Extra dark = Extra bikri!"},
+{q:"Nirma detergent kisne banaya? Cycle wala? 🚲",a:["Karsanbhai Patel ne ghar se, cycle pe bechke!","Ambani ne","Angrez ne"],c:0,f:"Cycle se crore tak - Asli Zero se Hero!"},
+{q:"Ghadi detergent kaise bikta? 🧼",a:["Sasta + tagda - har ghar me Ghadi!","Mehenga","Free me"],c:0,f:"Sasta aur tagda = Har ghar me!"},
+{q:"Parle-G biscuit itna sasta kaise? 🍪",a:["1929 se, har gareeb ka biscuit - G maane Genius!","Mehenga","Jhooth"],c:0,f:"Gareeb ka biscuit = Desh ka biscuit!"},
+{q:"Haldiram kaise bada bana? Bhujia se? 🥨",a:["Bikaner ki chhoti dukan se duniya tak!","Ek din me","Jadu se"],c:0,f:"Bhujia se duniya tak - Mehnat ka taste!"},
+{q:"Amul kaise bana? Dudh ki kahani? 🥛",a:["Kisan ne milke brand banaya - The Taste of India!","Ek aadmi ne","Sarkar ne"],c:0,f:"Kisan ka brand = Desh ka brand!"},
+{q:"MDH masale wale Dadaji kaise hero bane? 👴",a:["Sialkot se Delhi, tanga chalake masale bechke!","Paisa tha","Lottery"],c:0,f:"Tanga se MDH King tak - Asli kahani!"},
+{q:"Lijjat Papad kaise bana? 👩",a:["7 auraton ne 80rs se start kiya, ab crore ka!","Paisa tha","Company ne"],c:0,f:"80rs se crore tak - Auraton ki takat!"},
+{q:"Paper Boat kaise bikta? Aam panna? 🥭",a:["Bachpan ki yaad bechke - Nani wali kahani!","Juice bechke","Paani bechke"],c:0,f:"Yaadein becho, paisa kamao!"},
+{q:"Patanjali kaise bada hua? Baba kaise? 🧘",a:["Swadeshi + Ayurved bechke - chhoti dukan se bada brand!","Jadu se","Paisa se"],c:0,f:"Swadeshi = Zero se Hero!"},
+{q:"Infosys kaise bana? 10,000 se? 💻",a:["7 dosto ne 10,000rs se start kiya, ab duniya me naam!","Paisa tha","Sarkar ne diya"],c:0,f:"10,000 se Infosys tak - Dosti + Mehnat!"},
+{q:"Chhota brand bada kaise banta? Formula kya? 🔥",a:["Sasta + Achha + Har jagah dikho = Hero!","Mehenga becho","Kuch mat karo"],c:0,f:"Sasta + Achha + Har jagah = Brand!"},
+{q:"Nataraj pencil ka price pehle kya tha? ✏️",a:["10-20 paise se start!","100rs","10rs"],c:0,f:"Paise se shuru, crore pe khatam!"},
+{q:"Detergent powder pehle kaise bikta tha? 🧼",a:["Bade brand mehenga dete, Nirma ne sasta diya!","Sasta tha","Free tha"],c:0,f:"Mehenga ko sasta karke hero bana!"},
+{q:"Local dukaan wala brand kaise jeete? 🏪",a:["Apne mohalle se shuru, fir sheher, fir desh!","Ek din me","Kabhi nahi"],c:0,f:"Mohalle se desh tak - Safar!"},
+{q:"Brand ki kahani me sabse important kya? 📖",a:["Kahani + Bharosa + Sasta","Sirf paisa","Sirf ad"],c:0,f:"Kahani becho, bharosa jeeto!"},
+{q:"Ek pencil se kya seekhe business me? ✏️",a:["Chhoti cheez bhi badi ban sakti agar har baccha use kare!","Kuch nahi","Pencil se kuch nahi hota"],c:0,f:"Chhoti cheez = Bada business!"},
+{q:"Nirma wali ladki kaun? 👧",a:["Karsanbhai ki beti Nirupama - naam se Nirma!","Model","Koi nahi"],c:0,f:"Beti ke naam se brand - Dil se!"},
+{q:"Zero se Hero brand ka final formula? 🏆",a:["Chhoti shuruat + Sasta + Achha + Mehnat + Kahani = Bada Brand! 🔥","Sirf paisa","Sirf kismat"],c:0,f:"SHABASH BABUA! Brand ka asli Hero tu hai! 👑✏️🧼"},
+
+{q:"Subah kitne baje uthna Good Habit? 🌅",a:["5-6 baje","12 baje","3 baje"],c:0,f:"Early utho, hero bano!"},
+{q:"Subah uthke pehle kya karna?",a:["Mobile dekhna","Paani + Brush 💧","Sona"],c:1,f:"Paani = Energy!"},
+{q:"Roz exercise kitni der? 💪",a:["30 min","0 min","5 ghante"],c:0,f:"30 min roz = Fit hero!"},
+{q:"Book padhna kitna good habit? 📚",a:["Roz 20 min","Kabhi nahi","Saal me 1"],c:0,f:"Roz padho, roz badho!"},
+{q:"Raat ko sone ka best time? 😴",a:["10-11 baje","3 baje","6 baje subah"],c:0,f:"Jaldi soyo, jaldi utho!"},
+{q:"Junk food roz khana? 🍔",a:["Good habit","Bad habit ❌","Kabhi kabhi ok"],c:1,f:"Junk = Body ka loss!"},
+{q:"Paani din me kitna? 💧",a:["8-10 glass","1 glass","20 glass"],c:0,f:"Paani hi jeevan hai!"},
+{q:"Thank You bolna kya hai? 🙏",a:["Good habit","Bad habit","Time waste"],c:0,f:"Thank you = Dil jeeto!"},
+{q:"Time pe kaam karna? ⏰",a:["Good habit","Bad habit","Koi farak nahi"],c:0,f:"Time ka hero = Life ka hero!"},
+{q:"Gussa aaye to kya kare? 😡",a:["Chilla do","Gehri saans lo 10 tak gino 🧘","Phone tod do"],c:1,f:"Saans lo, gussa chhodo!"},
+{q:"Mobile kitna dekhna good habit? 📱",a:["Limit me","24 ghante","Kabhi nahi"],c:0,f:"Limit me mobile = Good life!"},
+{q:"Paise bachana kaise habit? 💰",a:["Roz thoda bachaao","Sab uda do","Udhaar lo"],c:0,f:"Boond boond se sagar!"},
+{q:"Jhooth bolna kya hai? 🤥",a:["Good habit","Bad habit ❌","Smartness"],c:1,f:"Sach = Sabse badi habit!"},
+{q:"Dusro ki madad karna? ❤️",a:["Good habit","Bad habit","Time waste"],c:0,f:"Madad karo, hero bano!"},
+{q:"Har din naya kya seekhna? 🔥",a:["Ek naya cheez","Kuch nahi","Wahi purana"],c:0,f:"Roz seekho, roz jeeto!"},
+{q:"Room saaf rakhna? ✨",a:["Good habit","Bad habit","Kaam wali karegi"],c:0,f:"Saaf room = Saaf dimag!"},
+{q:"Bad habits kaise chhode?",a:["Ek ek karke dheere dheere","Ek saath sab","Kabhi nahi"],c:0,f:"Dheere dheere habit badlo!"},
+{q:"Trading me Good Habit kya? ✏️",a:["Plan likhna","Bina soche kharidna","Gussa me bechna"],c:0,f:"Plan likho = Good habit!"},
+{q:"Roz trading diary likhna? 📒",a:["Good habit","Bad habit","Time waste"],c:0,f:"Diary likho, galti mitao!"},
+{q:"Zero se Hero ka Good Habit formula? 🏆",a:["Subah jaldi + Exercise + Book + Saving = Hero! 🔥","Sona + Mobile","Kismat"],c:0,f:"SHABASH! Good Habits KING! 👑"},
+
+{q:"Trading me pehle kya karna?",a:["Pura paisa lagao","Sikho + chhota start","Udhaar lo"],c:1,f:"Pehle seekh babua!"},
+{q:"Hara candle matlab?",a:["Loss","Profit Party! 🟢","Market band"],c:1,f:"Hara = Party!"},
+{q:"Lal candle dekhe to?",a:["Nacho","Sambhal jao 🔴","Rona"],c:1,f:"Lal = Danger!"},
+{q:"Girlfriend naraz ho to trading kare?",a:["Haan","Bilkul nahi","Usse puch ke"],c:1,f:"Mood kharab = Loss!"},
+{q:"Pencil ka use trading me? ✏️",a:["Graph banao","Khana khao","Kuch nahi"],c:0,f:"Graph banao, hero bano!"},
+{q:"iPhone kaise jeete? 📱",a:["Spin karo","Chori karo","Mummy ko bolo"],c:0,f:"Spin karo, iPhone jeeto!"},
+{q:"Rubber kyu chahiye? 🧽",a:["Galti mitane","Khane","Timepass"],c:0,f:"Galti mitao!"},
+{q:"Book padhne se kya hoga? 📚",a:["Neend","Hero banoge","Wajan"],c:1,f:"Padhoge to badhoge!"},
+{q:"Risk management kya?",a:["Sab ek jagah","Divide karo risk 👑","Risk lo hi mat"],c:1,f:"Divide and rule!"},
+{q:"Market ka dushman kaun?",a:["Lalach aur Dar","Padosi","Bijli"],c:0,f:"Lalach ko bye bolo!"},
+{q:"Loss pe kya kare? 😂",a:["Roye","Hase aur seekhe","Phone tode"],c:1,f:"Haso, seekho, jeeto!"},
+{q:"Sasta leke mehenga bechna kya?",a:["Trading","Chori","Jadoo"],c:0,f:"Wahi to trading hai!"},
+{q:"1 din me crorepati?",a:["Dheere dheere haan","Ek raat me","Kabhi nahi"],c:0,f:"Dheere dheere crorepati!"},
+{q:"Trading me sabse important?",a:["Paisa","Dimag aur Sabr","Kismat"],c:1,f:"Dimag se jeeto!"},
+{q:"Stop Loss kya?",a:["Loss rokne ka button","Gaana","Kuch nahi"],c:0,f:"Loss ko rok do!"},
+{q:"Market kab khulta?",a:["Raat 12 baje","Subah 9:15","Kabhi bhi"],c:1,f:"Subah utho, market dekho!"},
+{q:"Candlestick kisne banaya?",a:["Japanese","Angrez","Babua ne"],c:0,f:"Japan ka jaadu!"},
+{q:"Support kya?",a:["Neeche ka sahara","Upar ka","Kuch nahi"],c:0,f:"Neeche girne se bachao!"},
+{q:"Resistance kya?",a:["Upar ka rukavat","Neeche ka","Biryani"],c:0,f:"Upar jane me rukavat!"},
+{q:"Breakout matlab? 🚀",a:["Bhag jana","Level tod ke upar jana","Toot jana"],c:1,f:"Rocket ban jao!"},
+{q:"Portfolio kya?",a:["Photo album","Sare shares ka jhola","Kuch nahi"],c:1,f:"Shares ka jhola!"},
+{q:"Dividend kya milta?",a:["Free ka paisa 💰","Gaali","Kuch nahi"],c:0,f:"Company degi inam!"},
+{q:"Bull market? 🐂",a:["Market upar ja raha","Neeche ja raha","So raha"],c:0,f:"Bull = Upar!"},
+{q:"Bear market? 🐻",a:["Market neeche ja raha","Upar ja raha","Nach raha"],c:0,f:"Bear = Neeche!"},
+{q:"Trading me emotion rakhna?",a:["Haan","Bilkul nahi","Thoda sa"],c:1,f:"Emotion ko ghar pe chhodo!"},
+{q:"Paisa udhaar leke trading?",a:["Haan","Kabhi nahi ❌","Thoda sa"],c:1,f:"Udhaar = Barbadi!"},
+{q:"Ek share ka price kaise badhta?",a:["Maang badhne se","Jaadu se","Kismat se"],c:0,f:"Maang badhao, daam badhao!"},
+{q:"Intraday kya?",a:["Ek din me kharido becho","Ek mahine me","Ek saal me"],c:0,f:"Ek din ka khel!"},
+{q:"Swing trading kya?",a:["Jhoola jhoolna","Kuch din hold karna","Bhagna"],c:1,f:"Kuch din ka game!"},
+{q:"Long term kya?",a:["Lambe samay tak hold","Ek ghanta","Ek minute"],c:0,f:"Lambe race ka ghoda!"},
+{q:"Chart dekh ke kya pata chalta?",a:["Bhavishya ka andaaza","Kuch nahi","Kal ka mausam"],c:0,f:"Chart bolega future!"},
+{q:"Volume kya batata?",a:["Kitna maal bik raha","Kitna paani hai","Kuch nahi"],c:0,f:"Bheed dekho, mauka dekho!"},
+{q:"Paisa kamane ka best tarika?",a:["Mehnat + Seekh","Lottery","Chori"],c:0,f:"Mehnat se hi hero!"},
+{q:"Market me sabse zyada bikta kya?",a:["Dar aur Lalach","Sabzi","Jalebi"],c:0,f:"Dar sabse mehenga!"},
+{q:"Trading me guru kaun? 😎",a:["Hasmat Ali","Koi nahi","Padosi"],c:0,f:"Hasmat Ali = Guru!"},
+{q:"Pencil se kya likhoge? ✏️",a:["Trading plan","Love letter","Kuch nahi"],c:0,f:"Plan likho, paisa banao!"},
+{q:"Rubber se kya mitayega? 🧽",a:["Galtiyan","Pencil","Kuch nahi"],c:0,f:"Galti mitao!"},
+{q:"Book me kya milega? 📚",a:["Gyaan","Raddi","Kachra"],c:0,f:"Gyaan = Paisa!"},
+{q:"iPhone jeet ke kya karoge? 📱",a:["Trading karoge","Bech doge","Tod doge"],c:0,f:"iPhone se trading!"},
+{q:"Earphone se kya sunoge? 🎧",a:["Market news","Gaana","Kuch nahi"],c:0,f:"News suno, paisa banao!"},
+{q:"Crown kaun pehnega? 👑",a:["Jo jeetega","Jo harega","Koi nahi"],c:0,f:"Tu pehnega crown!"},
+{q:"Diamond kya hai? 💎",a:["Sabse mehenga inam","Pathar","Kanch"],c:0,f:"Diamond = Jackpot!"},
+{q:"Coin jeet ke kya karoge? 💰",a:["Spin karoge","Kharch karoge","Bachaoge"],c:0,f:"Coin se spin!"},
+{q:"Zero se Hero kaise bane? 🔥",a:["Mehnat + Quiz + Spin","Kismat se","Paisa se"],c:0,f:"Tu ban gaya Hero!"},
+{q:"Trading me sabse funny kya? 😂",a:["Loss pe bhi hasna","Profit pe rona","Kuch nahi"],c:0,f:"Hasna hi trading hai!"},
+{q:"Market gir raha hai to? 📉",a:["Daro","Sambhal ke dekho","Bhaago"],c:1,f:"Dar ke aage jeet!"},
+{q:"Market upar ja raha hai to? 📈",a:["Kharido","Becho","So jao"],c:0,f:"Upar jayega to kamao!"},
+{q:"Ek accha trader kya karta?",a:["Roz seekhta hai","Roz rota hai","Roz sota hai"],c:0,f:"Seekhna kabhi band nahi!"},
+{q:"Final mantra kya? 🏆",a:["Seekho, Khelo, Jeeto!","So jao","Ruk jao"],c:0,f:"Shabash Babua!"},
+{q:"'Aankh ka tara' matlab? ⭐",a:["Bahut pyara hona","Aankh me tara","Aankh dukhna"],c:0,f:"Tu bhi aankh ka tara hai!"},
+{q:"'Nau do gyarah hona' matlab? 🏃",a:["Bhag jana","11 bajna","9+2=11"],c:0,f:"Loss dekhe to nau do gyarah!"},
+{q:"'Paise ko paise khinchta hai'? 💰",a:["Invest karo to badhega","Nahi","Jhooth"],c:0,f:"Paisa hi paise ko bulata!"},
+{q:"'Boond boond se sagar'? 🌊",a:["Chhota profit jod ke bada","Paani bharo","Kuch nahi"],c:0,f:"Chhota profit = Bada paisa!"},
+{q:"'Ghar ka bhedi Lanka dhaye'?",a:["Galat news / Lalach","Ghar wala","Bhedi"],c:0,f:"Galat khabar se market girega!"},
+{q:"'Muh me Ram bagal me chhuri'?",a:["Fake guru","Pandit","Doctor"],c:0,f:"Nakli guru se bacho!"},
+{q:"'Haathi ke daant khane ke aur dikhane ke aur'?",a:["Market upar dikhe andar loss","Haathi","Daant"],c:0,f:"Chart dekh ke fasna mat!"},
+{q:"'Andhon me kana raja'? 👑",a:["Thoda gyaan bhi bahut","Andha","Kana"],c:0,f:"Thoda seekh ke bhi hero!"},
+{q:"'Daal me kuch kala hai'?",a:["Jab market bina wajah gire","Daal kharab","Kala rang"],c:0,f:"Kuch to gadbad hai!"},
+{q:"'Oont ke muh me jeera'?",a:["Bada loss me chhota profit","Oont","Jeera"],c:0,f:"Bade loss me chhota profit kuch nahi!"},
+{q:"'Ek anar sau beemar'?",a:["Ek share ke peeche sab bhage","Anar","Beemar"],c:0,f:"Bheed me mat bhaago!"},
+{q:"'Aankh band karke bharosa'? ❌",a:["Kabhi nahi","Haan","Thoda sa"],c:0,f:"Aankh khol ke trading karo!"},
+{q:"'Thotha chana baje ghana'?",a:["Jo zyada bole kam jane","Chana","Ghanta"],c:0,f:"Zyada gyaan wale se bacho!"},
+{q:"'Khoda pahad nikli chuhiya'?",a:["Bahut mehnat kam profit","Pahad","Chuhiya"],c:0,f:"Kabhi aisa bhi hota!"},
+{q:"'Jaisi karni waisi bharni'?",a:["Jaise karoge waise paoge","Karma","Kuch nahi"],c:0,f:"Mehnat karoge to paisa paoge!"},
+{q:"'Laat ke bhoot baat se nahi mante'?",a:["Market","Bhoot","Laat"],c:0,f:"Market ko dimag se jeeto!"},
+{q:"'Doodh ka jala chhach bhi phook ke'? ",a:["Ek baar loss hua to dar lagta","Doodh","Chhach"],c:0,f:"Loss se daro mat, seekho!"},
+{q:"'Apna paisa khota to paraya kya?' 💰",a:["Khud ka paisa sambhalo","Paraya paisa","Kuch nahi"],c:0,f:"Pehle apna paisa bachao!"},
+{q:"'Apni hi dhun me rehna'?",a:["Plan pe tikke rehna","Gaana sunna","So jana"],c:0,f:"Strategy pe tikke raho!"},
+{q:"'Zero se Hero kaise bane?' muhawara? 🏆",a:["Boond boond + Mehnat = Hero","Kismat se","Jadu se"],c:0,f:"Shabash! Muhawara King!"},
+{q:"Sher market me kaise shikar karta? 🦁",a:["Sabr se wait karta","Bhaag ke kharidta","So jata"],c:0,f:"Sher jaisa sabr rakho!"},
+{q:"Khargosh aur Kachhua race me kaun jeeta? 🐢",a:["Khargosh","Kachhua dheere chalke jeeta","Dono hare"],c:1,f:"Dheere dheere jeet pakki!"},
+{q:"Bandar ko market me kya nahi karna? 🐒",a:["Ek daal se dusri koodna","Ek jagah tikna","Sochna"],c:0,f:"Bandar jaisa uchal kud mat karo!"},
+{q:"Hathi kaise sochta? 🐘",a:["Bada sochta","Chhota sochta","Sochta hi nahi"],c:0,f:"Hathi jaisa bada socho!"},
+{q:"Cheenti se kya seekhe? 🐜",a:["Chhota chhota jod ke bada","Akele raho","Soya karo"],c:0,f:"Cheenti jaisa jodo!"},
+{q:"Lomdi market me kaun? 🦊",a:["Chalak trader","Bewakoof","Seedha"],c:0,f:"Lomdi jaisa chalak bano!"},
+{q:"Kutta wafadar hai to trader kiska? 🐶",a:["Apne plan ka","Padosi ka","Kisi ka nahi"],c:0,f:"Plan ke wafadar raho!"},
+{q:"Billi rasta kaate to? 🐱",a:["Dar ke trade band","Soch samajh ke aage badho","Ghar jao"],c:1,f:"Andhvishwas nahi!"},
+{q:"Gadha mehnat karta par kya nahi? 🫏",a:["Dimag lagata","Mehnat","Kuch nahi"],c:0,f:"Gadha mat bano, dimag lagao!"},
+{q:"Ghoda tez bhagta, trader kaise? 🐴",a:["Soch samajh ke tez","Bina soche","Bhage hi nahi"],c:0,f:"Ghoda jaisa tez par control me!"},
+{q:"Morch jaisa kaun dikhta? 🦚",a:["Jo profit dikhake loss chhupaye","Sachcha","Seedha"],c:0,f:"Dikhawa se bacho!"},
+{q:"Ullu din me kya karta? 🦉",a:["Sota hai, raat ko jagta","Trading karta","Nachta"],c:0,f:"Ullu mat bano, time pe jago!"},
+{q:"Tota kya karta? 🦜",a:["Jo suna wahi bolta","Khud sochta","Chup rehta"],c:0,f:"Tota mat bano, khud seekho!"},
+{q:"Sher bhookha ho to? 🦁",a:["Kisi ko bhi kha jata","Sabr karta","Bhag jata"],c:1,f:"Lalach mat karo!"},
+{q:"Machli ko jal se nikaloge to? 🐟",a:["Mar jayegi","Ud jayegi","Nach jayegi"],c:0,f:"Plan se nikloge to loss!"},
+{q:"Saanp seedhi lakeer me chalta? 🐍",a:["Nahi, tedha medha","Haan seedha","Udta"],c:0,f:"Market bhi tedha chalta!"},
+{q:"Bhed chaal kya hai? 🐑",a:["Sabke peeche bhaagna","Akele chalna","Sona"],c:0,f:"Bhed chaal mat chalo!"},
+{q:"Kauwa sabse chalak kaise? 🐦‍⬛",a:["Sab dekh ke mauka dhoondta","Kuch nahi karta","Sota"],c:0,f:"Tez nazar rakho!"},
+{q:"Haathi aur cheenti saath kaise? 🐘🐜",a:["Bada + Chhota dono jaroori","Nahi ho sakte","Ladenge"],c:0,f:"Bada socho, chhota jodo!"},
+{q:"Jungle ka raja kaun banega? 👑",a:["Jo 150 sawal jeetega - Tu! 🏆","Sher","Koi nahi"],c:0,f:"Tu Jungle ka Raja hai!"},
+{q:"10rs ka pencil 20rs me, profit? ✏️",a:["0rs","10rs = 100% profit!","5rs"],c:1,f:"100% profit!"},
+{q:"100rs, 90rs loss, bacha? 😭",a:["10rs","100rs","190rs"],c:0,f:"10rs bacha!"},
+{q:"2+2 trading me? 🤓",a:["4","22","5"],c:0,f:"4 hi hota hai!"},
+{q:"100rs ka share 110rs, profit %?",a:["10%","100%","0%"],c:0,f:"10% profit = Party!"},
+{q:"10 trade, 7 profit, win %? 🔥",a:["70%","7%","10%"],c:0,f:"70% win = Sher!"},
+{q:"5 pencil 10rs each, total?",a:["50rs","10rs","5rs"],c:0,f:"50rs hisaab clear!"},
+{q:"iPhone 1 lakh, 10% discount? 📱",a:["90,000rs","1,10,000rs","1 lakh"],c:0,f:"90k me iPhone!"},
+{q:"1 din me 100rs, 30 din me? 💰",a:["3000rs","100rs","30rs"],c:0,f:"3000rs!"},
+{q:"0 se hero me kitne zero? 😂",a:["Ek zero se hi hero!","100 zero","Zero hi nahi"],c:0,f:"Ek zero se hi hero!"},
+{q:"10 me se 2 gaya to bacha?",a:["8 bacha","12 bacha","0 bacha"],c:0,f:"8 bacha!"},
+{q:"50% loss ke baad 50% profit =?",a:["Wapas 0 nahi, loss me!","Barabar","Profit"],c:0,f:"100% chahiye wapas!"},
+{q:"Ek rubber 5rs, 20 rubber? 🧽",a:["100rs","20rs","5rs"],c:0,f:"100rs ke rubber!"},
+{q:"Trading me 2 important number? 🔢",a:["Entry aur Exit","1 aur 2","100 aur 0"],c:0,f:"Entry aur Exit = Paisa!"},
+{q:"100 ka 10% kitna? (SL)",a:["10","100","1"],c:0,f:"10! Yehi SL!"},
+{q:"1 Book 200rs, 3 Book? 📚",a:["600rs","200rs","300rs"],c:0,f:"600rs me gyaan!"},
+{q:"Day me 1% kamao, saal me?",a:["365% 🔥","1%","100%"],c:0,f:"1% roz = 365% saal!"},
+{q:"Paisa double kab? Rule 72",a:["72 / return % = saal","72 din me","Kabhi nahi"],c:0,f:"Rule 72 - Jadu!"},
+{q:"10,000 ka 20% loss?",a:["2000rs","200rs","20,000rs"],c:0,f:"2000rs gaya!"},
+{q:"Profit kaise gine? 🤔",a:["Sale - Buy = Profit","Buy + Sale","Kuch bhi"],c:0,f:"Becha - Kharida = Profit!"},
+{q:"Zero se Hero FINAL formula? 🏆",a:["0 + Mehnat x Maths = Hero! 🔥","0+0=0","Kismat"],c:0,f:"SHABASH BABUA! 150 ka Don! 🎉👑"}
 ];
-let idx=0,score=0,level=1,coins=0;
-const qEl=document.getElementById('q'),optsEl=document.getElementById('opts'),scoreEl=document.getElementById('score'),levelEl=document.getElementById('level'),coinsEl=document.getElementById('coins'),barEl=document.getElementById('bar');
-function load(){
-if(idx>=questions.length){idx=0;level++;levelEl.textContent=level;alert("Level Up! Ab tu Level "+level+" pe hai 🔥");}
-const cur=questions[idx];
-qEl.textContent=(idx+1)+". "+cur.q;
-optsEl.innerHTML="";
-cur.a.forEach((opt,i)=>{
-const b=document.createElement('button');
-b.className='btn';b.textContent=opt;
-b.onclick=()=>check(i,b);
-optsEl.appendChild(b);
-});
-barEl.style.width=((idx/questions.length)*100)+"%";
-}
-function check(i,btn){
-const cur=questions[idx];
-const all=document.querySelectorAll('.btn');
-if(i===cur.c){
-btn.classList.add('correct');score+=10;coins+=5;scoreEl.textContent=score;coinsEl.textContent=coins;
-}else{
-btn.classList.add('wrong');all[cur.c].classList.add('correct');
-}
-setTimeout(()=>{idx++;load();},800);
-}
+let qs=Q.slice().sort(()=>0.5-Math.random()),idx=0,sc=0,st=0;let TOTAL=Q.length;
+function load(){if(idx>=TOTAL){document.getElementById('cSc').textContent=sc;document.getElementById('cName').textContent=sc>=1200?"🏆 ULTIMATE 150 KING!":sc>=800?"🤓 150 ka Don!":"💪 Aur Mehnat Kar!";document.getElementById('cMsg').textContent="Score "+sc+"/"+(TOTAL*10)+"! "+(sc>=1200?"Tu ULTIMATE hero hai! 150 quiz ka baap! Brand King!":"Aur khel, hero banega!");document.getElementById('cert').classList.add('show');speak(sc>=800?'Badhaai ho babua! 150 quiz jeet gaye! Ultimate hero ban gaye! Brand king!':'Koshish jaari rakho babua!');tone(800,0.3);return}
+let cur=qs[idx];document.getElementById('qt').textContent=(idx+1)+". "+cur.q;document.getElementById('qno').textContent=(idx+1)+"/"+TOTAL;document.getElementById('bar').style.width=(idx/TOTAL*100)+"%";let o=document.getElementById('opts');o.innerHTML="";cur.a.forEach((t,j)=>{let b=document.createElement('button');b.className='opt';b.textContent=t;b.onclick=()=>{document.querySelectorAll('.opt').forEach(x=>x.onclick=null);if(j==cur.c){b.classList.add('ok');sc+=10;st++;tone(900,0.2);setTimeout(()=>tone(1300,0.3),150);speak('Shabash babua!');document.getElementById('fmsg').textContent="✅ "+cur.f}else{b.classList.add('no');o.children[cur.c].classList.add('ok');st=0;tone(150,0.5);document.getElementById('fmsg').textContent="❌ "+cur.f}document.getElementById('sc').textContent="Score:"+sc;document.getElementById('st').textContent="🔥"+st;setTimeout(()=>{idx++;document.getElementById('fmsg').textContent="";load()},1200)};o.appendChild(b)})}
+function closeC(){document.getElementById('cert').classList.remove('show');idx=0;qs=Q.slice().sort(()=>0.5-Math.random());sc=0;st=0;document.getElementById('sc').textContent="Score:0";tab(2)}
+let sp=false;function spin(){if(sp)return;sp=true;let w=document.getElementById('wh');let d=Math.floor(Math.random()*360)+2160;w.style.transform="rotate("+d+"deg)";setTimeout(()=>{sp=false;let items=["✏️ Pencil Pack","📱 iPhone 15 Pro Max!","🧽 Magic Rubber","📚 Trading Book Set","💰 500 Coins","🎧 AirPods","👑 GOLD Crown","💎 Diamond Trophy"];let win=items[Math.floor(Math.random()*items.length)];document.getElementById('spR').innerHTML="🎉 ULTIMATE JACKPOT!<br><span style='font-size:23px'>"+win+"</span><br>Shabash Babua! Brand King!";speak("Ultimate jackpot babua! Jeet gaye "+win);tone(800,0.2);setTimeout(()=>tone(1200,0.4),200)},4000)}
 load();
-</script>
-</body>
-</html>
+</script></body></html>
