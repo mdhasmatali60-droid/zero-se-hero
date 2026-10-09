@@ -2,92 +2,156 @@
 <html lang="hi">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Zero Se Hero - Shayari Certificate</title>
+<title>Zero Se Hero - Final All In One</title>
 <style>
-*{margin:0;padding:0;box-sizing:border-box}body{font-family:system-ui;background:linear-gradient(180deg,#0a0a1f,#1a1040,#0f1a3a);color:#fff}
-.app{max-width:430px;margin:0 auto;background:rgba(0,0,0,.3);min-height:100vh;padding-bottom:80px}
-.cover{width:100%;height:240px;object-fit:cover}.logo{width:110px;height:110px;border-radius:50%;border:4px solid gold;margin:-55px auto 10px;display:block;object-fit:cover;background:#111}
+*{margin:0;padding:0;box-sizing:border-box}body{font-family:system-ui;background:linear-gradient(180deg,#0a0a1f,#1a1040);color:#fff}
+.app{max-width:430px;margin:0 auto;background:rgba(0,0,0,.25);min-height:100vh;padding-bottom:90px}
+.cover{width:100%;height:230px;object-fit:cover;display:block}.logo{width:110px;height:110px;border-radius:50%;border:4px solid gold;margin:-55px auto 8px;display:block;object-fit:cover;background:#111}
 .title{text-align:center;color:gold;font-size:28px;font-weight:900}.sub{text-align:center;opacity:.6;font-size:11px;margin-bottom:10px}
-.card{margin:12px;background:rgba(255,255,255,.07);border-radius:18px;padding:15px;border:1px solid rgba(255,255,255,.1)}
-.bar{height:8px;background:rgba(255,255,255,.1);border-radius:10px;overflow:hidden}.bar div{height:100%;background:linear-gradient(90deg,gold,orange);width:0%;transition:.5s}
-.info{display:flex;justify-content:space-between;font-size:12px;margin:12px 0;font-weight:600}.qtext{font-weight:700;min-height:60px;font-size:16px}.opt{width:100%;padding:13px;margin:6px 0;border-radius:12px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.1);color:#fff;text-align:left;cursor:pointer}
-.opt.ok{background:#00c853!important}.opt.no{background:#d50000!important}.msg{text-align:center;font-size:12px;margin-top:12px;min-height:20px;font-weight:600}
-.slotbox{display:flex;gap:6px;justify-content:center;margin:10px 0}.slot{background:gold;color:#000;padding:6px 10px;border-radius:8px;font-weight:900;font-size:11px}
-.musicBtn{position:fixed;bottom:15px;right:15px;background:gold;color:#000;width:50px;height:50px;border-radius:50%;border:none;font-size:22px;z-index:99}
-/* Certificate */
-#certModal{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.88);z-index:1000;justify-content:center;align-items:center;padding:12px}
-.certBox{background:linear-gradient(135deg,#ffffff 0%,#fff9db 50%,#ffeaa7 100%);color:#000;border-radius:20px;padding:0;max-width:400px;width:100%;text-align:center;position:relative;border:4px solid gold;overflow:hidden;animation:pop .5s}
-@keyframes pop{0%{transform:scale(.5)}100%{transform:scale(1)}}
-.certHeader{background:linear-gradient(90deg,#0a0a1f,#1a1040);color:gold;padding:10px;display:flex;justify-content:space-between;align-items:center}
-.certHeader img{width:38px;height:38px;border-radius:50%;border:2px solid gold;object-fit:cover}
-.certHeader h3{font-size:14px;letter-spacing:1px}
-.certBody{padding:18px}
-.shayari{background:linear-gradient(90deg,#fdcb6e,#ffeaa7);border-left:4px solid #e17055;padding:10px;border-radius:10px;font-style:italic;font-weight:700;font-size:13px;margin:12px 0;color:#2d3436;line-height:1.4}
-.cName{font-size:22px;font-weight:900;color:#d63031;margin:8px 0;text-transform:uppercase;border-bottom:2px dashed gold;display:inline-block;padding-bottom:3px}
-.cScore{font-size:22px;font-weight:900;color:#00b894;margin:5px 0}
-.btnGold{width:100%;padding:13px;border-radius:12px;border:none;background:linear-gradient(90deg,gold,orange);font-weight:800;margin-top:8px;cursor:pointer}
-.btnWhite{width:100%;padding:11px;border-radius:12px;border:1px solid gold;background:#fff;font-weight:700;margin-top:8px;cursor:pointer}
+.card{margin:12px;background:#1e1e4a;border-radius:18px;padding:15px;border:1px solid rgba(255,255,255,.12)}
+.bar{height:9px;background:rgba(255,255,255,.15);border-radius:10px;overflow:hidden}.bar div{height:100%;background:linear-gradient(90deg,gold,orange);width:0%;transition:.4s}
+.info{display:flex;justify-content:space-between;font-size:13px;margin:12px 0;font-weight:800}
+.qtext{font-weight:800;min-height:55px;font-size:17px;line-height:1.35;margin:10px 0}
+.opt{width:100%;padding:14px;margin:6px 0;border-radius:12px;background:#2c2c6a;border:1px solid rgba(255,255,255,.15);color:#fff;text-align:left;font-size:15px;font-weight:600;cursor:pointer}
+.opt.ok{background:#00c853!important}.opt.no{background:#d50000!important}
+.msg{text-align:center;font-size:13px;margin-top:10px;min-height:20px;font-weight:700;color:#ffd700}
+.slotbox{display:flex;gap:7px;justify-content:center;margin:10px 0}.slot{background:gold;color:#000;padding:7px 11px;border-radius:8px;font-weight:900;font-size:11px}
+.musicBtn{position:fixed;bottom:18px;right:18px;background:gold;color:#000;width:52px;height:52px;border-radius:50%;border:none;font-size:24px;z-index:99;box-shadow:0 4px 15px #000}
+#certModal{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.88);z-index:1000;justify-content:center;align-items:center;padding:14px}
+.certBox{background:linear-gradient(135deg,#fff,#fff9db,#ffeaa7);color:#000;border-radius:20px;max-width:390px;width:100%;border:4px solid gold;overflow:hidden;animation:pop.4s}
+@keyframes pop{0%{transform:scale(.6)}100%{transform:scale(1)}}
+.certHeader{background:#0a0a1f;color:gold;padding:11px;display:flex;justify-content:space-between;align-items:center}
+.certHeader img{width:40px;height:40px;border-radius:50%;border:2px solid gold;object-fit:cover}
+.certBody{padding:18px;text-align:center}.cName{font-size:22px;font-weight:900;color:#d63031;margin:6px 0;text-transform:uppercase;border-bottom:2px dashed gold;display:inline-block}
+.shayari{background:linear-gradient(90deg,#fdcb6e,#ffeaa7);border-left:4px solid #e17055;padding:11px;border-radius:10px;font-style:italic;font-weight:800;font-size:13px;margin:12px 0;color:#222;line-height:1.4;white-space:pre-line}
+.btnGold{width:100%;padding:13px;border-radius:12px;border:none;background:linear-gradient(90deg,gold,orange);font-weight:900;margin-top:8px;cursor:pointer}
+.btnWhite{width:100%;padding:11px;border-radius:12px;border:1px solid gold;background:#fff;font-weight:800;margin-top:8px;cursor:pointer}
 </style>
 </head>
 <body>
 <div class="app">
-<img class="cover" src="IMG_7295.jpeg"><img class="logo" src="IMG_7296.jpeg">
-<h1 class="title">ZERO TO HERO</h1><p class="sub">150 QUIZ • SHAYARI CERTIFICATE 🔥</p>
-<div class="card"><div class="bar"><div id="bar"></div></div><div class="info"><span id="qno">1/150</span><span id="sc">Score:0</span><span id="st">🔥0</span></div>
+<img class="cover" src="IMG_7295.jpeg?v=100"><img class="logo" src="IMG_7296.jpeg?v=100">
+<h1 class="title">ZERO TO HERO</h1><p class="sub">150 QUIZ • SLOT • CERTIFICATE • SHAYARI • MUSIC 🔥</p>
+<div class="card">
+<div class="bar"><div id="bar"></div></div>
+<div class="info"><span id="qno">1/150</span><span id="sc">Score:0</span><span id="st">🔥0</span></div>
 <div class="slotbox"><div class="slot" id="s1">SLOT 1</div><div class="slot" id="s2">Q 1</div><div class="slot" id="s3">LVL 1</div></div>
-<div class="qtext" id="qt"></div><div id="opts"></div><div class="msg" id="fmsg"></div></div>
+<div class="qtext" id="qt">Question loading...</div>
+<div id="opts"></div>
+<div class="msg" id="fmsg"></div>
+</div>
 </div>
 
 <div id="certModal"><div class="certBox">
-<div class="certHeader"><img id="hImg1" src="IMG_7296.jpeg"><h3>⭐ ZERO SE HERO ⭐</h3><img id="hImg2" src="IMG_7295.jpeg" style="border-radius:8px"></div>
+<div class="certHeader"><img src="IMG_7296.jpeg?v=100"><h3>⭐ ZERO SE HERO ⭐</h3><img src="IMG_7295.jpeg?v=100" style="border-radius:8px"></div>
 <div class="certBody">
-<div style="font-size:38px">🏆</div><h2 style="color:#d63031;font-size:18px">HERO CERTIFICATE</h2><p style="font-size:10px;opacity:.6">Zero Se Hero Challenge • 150 Quiz Mission</p>
-<div class="cName" id="cName">BABUA HERO</div><p style="font-size:12px">Ne <b id="cQuiz">10</b> Quiz Complete Kiye!</p>
-<div class="cScore" id="cScore">Score: 100</div>
-<div class="shayari" id="shayari">Shayari loading...</div>
+<div style="font-size:42px">🏆</div><h2 style="color:#d63031;font-size:18px">HERO CERTIFICATE</h2><p style="font-size:10px;opacity:.6">Zero Se Hero Challenge</p>
+<div class="cName" id="cName">BABUA HERO</div>
+<p style="font-size:13px">Ne <b id="cQuiz">10</b> Quiz Complete Kiye!</p>
+<div style="font-size:20px;font-weight:900;color:#00b894" id="cScore">Score: 100</div>
+<div class="shayari" id="shayari"></div>
 <p style="font-size:10px;opacity:.6" id="cDate"></p>
-<button class="btnGold" onclick="closeCert()">🚀 Aage Badho - Next Level</button>
-<button class="btnWhite" onclick="downloadCert()">📥 Certificate Download Karo</button>
+<button class="btnGold" onclick="closeCert()">🚀 Aage Badho - Next 10 Quiz</button>
+<button class="btnWhite" onclick="downloadCert()">📥 Certificate Download</button>
 </div>
 </div></div>
 
-<audio id="bgm" loop><source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg"></audio>
-<audio id="motivation" loop><source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3" type="audio/mpeg"></audio>
-<button class="musicBtn" onclick="toggleMusic()" id="mBtn">🔊</button>
+<audio id="bgm" loop><source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3"></audio>
+<audio id="motivation"><source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3"></audio>
+<button class="musicBtn" id="mBtn" onclick="toggleMusic()">🔊</button>
 
 <script>
-const Q=[
-{q:"Nataraj Pencil No.1 kaise? ✏️",a:["Sasti+quality har jagah","Mehenga","Jadu"],c:0,f:"Zero se Hero!"},
-{q:"Nirma cycle se kaise? 🚲",a:["Cycle pe ghar se","Paisa","Jadu"],c:0,f:"Cycle se crore!"},
-{q:"Parle-G sasta kyu? 🍪",a:["Har gareeb ka","Mehenga","Jhooth"],c:0,f:"Desh ka biscuit!"},
-{q:"Haldiram kaise? 🥨",a:["Bikaner dukan se","Ek din","Jadu"],c:0,f:"Bhujia se duniya!"},
-{q:"Amul kaise? 🥛",a:["Kisan milke","Ek aadmi","Sarkar"],c:0,f:"Kisan brand!"},
-{q:"MDH Dadaji? 👴",a:["Tanga chalake","Paisa","Lottery"],c:0,f:"Tanga se King!"},
-{q:"Lijjat Papad? 👩",a:["7 aurat 80rs se","Paisa","Company"],c:0,f:"Auraton ki takat!"},
-{q:"Infosys 10k se? 💻",a:["7 dost 10k se","Paisa","Sarkar"],c:0,f:"Dosti+Mehnat!"},
-{q:"Brand formula? 🔥",a:["Sasta+Achha+Har jagah","Mehenga","Kuch nahi"],c:0,f:"Formula lock!"},
-{q:"Trading pehle kya? ✏️",a:["Pura paisa","Sikho+chhota","Udhaar"],c:1,f:"Pehle seekh!"},
+var Q=[
+["Nataraj Pencil No 1 kaise bana?","Sasti+quality har jagah","Mehenga bechke","Jadu se",0,"Zero se Hero - Sasti cheez!"],
+["Nirma cycle se kaise bada?","Cycle pe ghar se bechke","Paisa tha","Jadu",0,"Cycle se crore!"],
+["Parle-G sasta kyu?","Har gareeb ka biscuit","Mehenga","Jhooth",0,"Desh ka biscuit!"],
+["Haldiram kaise?","Bikaner dukan se duniya tak","Ek din me","Jadu",0,"Bhujia se duniya!"],
+["Amul kaise?","Kisan milke","Ek aadmi","Sarkar",0,"Kisan brand!"],
+["MDH Dadaji kaise?","Tanga chalake masala","Paisa tha","Lottery",0,"Tanga se King!"],
+["Lijjat Papad?","7 aurat 80rs se crore","Paisa","Company",0,"Auraton ki takat!"],
+["Infosys 10k se?","7 dost 10k se","Paisa bahut","Sarkar",0,"Dosti+Mehnat!"],
+["Brand formula?","Sasta+Achha+Har jagah","Mehenga","Kuch nahi",0,"Formula Lock!"],
+["Trading pehle kya?","Pura paisa laga","Sikho+chhota","Udhaar lo",1,"Pehle seekh!"]
 ];
-const SHAYARI=[
+var SHAYARI=[
 "Rukna nahi, jhukna nahi,\nHar mushkil se ladna hai,\n10 kiye hain, 140 baki,\nTujhe Hero hi banna hai! 🔥",
 "Cycle se shuru kiya tha Nirma ne,\nTune 10 quiz se shuruat ki,\nAb rukega kaun tujhe,\nTeri kismat khud likhi! 🚲",
 "Gir ke uthna, uth ke chal,\nYahi hai jeet ka funda,\n20 ho gaye, ab 130 baki,\nTu hai sabse tagda banda! 💪",
-"Bhujia bech ke Haldiram bana,\nPencil bech ke Nataraj,\nTu quiz kar ke Hero banega,\nDuniya karegi tera raaj! 👑",
+"Bhujia bech ke Haldiram bana,\nPencil bech ke Nataraj,\nTu quiz karke Hero banega,\nDuniya karegi tera raaj! 👑",
 "40 ho gaye mere sher,\nAb to aadat si hai,\nQuiz karna, Hero banna,\nTeri fitrat si hai! 🦁",
 "50 ka half century Babua!\nSachin bhi sharmaye,\nTu Zero se Hero ban raha,\nDuniya dekhti jaye! 🏏🔥",
-"60 Quiz - Tu tofa hai!\nMehnat teri bolti hai,\nHar jawab me teri,\nJeet ki kahaani hai! 📚",
-"70 paar - Ab to rocket hai tu! 🚀\nAasman bhi chhota lage,\nTera junoon dekh ke,\nHar mushkil khud bhaage! 🌪️",
-"80 ho gaye! Wah Babua Wah!\nTu ruke to kaise ruke,\nTere andar Hero hai,\nJo har baazi jeete! 🎯",
-"90 - Bas 60 aur! 🔥\nManzil saamne hai,\nThoda aur zor laga,\nHero banne ka time hai! ⏰",
-"100 - CENTURY BABUA! 💯🏆\nTu itihaas likh raha hai,\nZero se Hero ka safar,\nTu khud likh raha hai! 📝🔥",
-"110 - Ab to Legend hai tu! 👑\nLog kahani sunayenge,\nEk tha Babua Hero,\nJo kabhi na ghabraye! 🦸",
-"120 - Super Hero! ⚡\nBijli si tez teri soch,\nHar quiz me dikh raha,\nTera Hero wala josh! 💥",
-"130 - Ultra Hero! 🌟\nAasman bhi jhukega,\nTera naam sun ke,\nHar dil dhadkega! ❤️",
-"140 - Final ke kareeb! 🎯\nBas 10 kadam aur,\nFir tu kahega duniya se,\nDekho main hoon HERO aur! 👑",
-"150 - ZERO SE HERO BAN GAYA! 🏆🔥👑\nTu jeet gaya Babua, tu jeet gaya!\nZero se shuru kiya tha,\nAaj Hero ban gaya!\nDuniya dekhegi tujhe,\nTu misaal ban gaya! 🌟"
+"60 Quiz - Tu tohfa hai!\nMehnat teri bolti hai,\nHar jawab me teri,\nJeet ki kahaani hai! 📚",
+"70 paar - Ab to rocket hai tu! 🚀\nAasman bhi chhota lage!",
+"80 ho gaye! Wah Babua Wah!\nTu ruke to kaise ruke!",
+"90 - Bas 60 aur! 🔥\nManzil saamne hai!",
+"100 - CENTURY BABUA! 💯🏆\nTu itihaas likh raha hai!",
+"110 - Ab to Legend hai tu! 👑\nLog kahani sunayenge!",
+"120 - Super Hero! ⚡\nBijli si tez teri soch!",
+"130 - Ultra Hero! 🌟\nAasman bhi jhukega!",
+"140 - Final ke kareeb! 🎯\nBas 10 kadam aur!",
+"150 - ZERO SE HERO BAN GAYA! 🏆🔥👑\nTu jeet gaya Babua!\nZero se shuru kiya tha,\nAaj Hero ban gaya! 🌟"
 ];
-let totalQ=150,qs=[],idx=0,sc=0,st=0,musicOn=false;
-for(let i=0;i<totalQ;i++) qs.push(Q[i%Q.length]);
-let heroName=localStorage.getItem('heroName')||prompt("Babua apna naam likh Certificate ke liye! 🏆")||"BABUA HERO";
-localStorage.setItem('heroName',heroName);
-function toggleMusic(){let a=document.getElementById('bgm'),b=document.getElementById('mBtn');if(!musicOn){a.play().catch(()=>{});b.textContent='🔊';
+var totalQ=150,allQ=[],idx=0,sc=0,st=0,musicOn=false;
+for(var i=0;i<totalQ;i++) allQ.push(Q[i%Q.length]);
+
+function toggleMusic(){
+var a=document.getElementById('bgm'),b=document.getElementById('mBtn');
+if(!musicOn){a.play().catch(function(){});b.innerText='🔊';musicOn=true}else{a.pause();b.innerText='🔇';musicOn=false}
+}
+function showCert(){
+document.getElementById('cName').innerText='BABUA HERO';
+document.getElementById('cQuiz').innerText=idx;
+document.getElementById('cScore').innerText='Score: '+sc+' | 🔥 '+st;
+document.getElementById('cDate').innerText=new Date().toLocaleDateString('hi-IN');
+var shIndex=Math.floor(idx/10)-1; if(shIndex<0) shIndex=0; if(shIndex>=SHAYARI.length) shIndex=SHAYARI.length-1;
+document.getElementById('shayari').innerText=SHAYARI[shIndex];
+document.getElementById('certModal').style.display='flex';
+document.getElementById('bgm').pause();
+var m=document.getElementById('motivation');m.currentTime=0;m.play().catch(function(){});
+if(navigator.vibrate) navigator.vibrate([300,100,300]);
+}
+function closeCert(){
+document.getElementById('certModal').style.display='none';
+document.getElementById('motivation').pause();
+if(musicOn) document.getElementById('bgm').play().catch(function(){});
+}
+function downloadCert(){
+var c=document.createElement('canvas');c.width=900;c.height=600;var x=c.getContext('2d');
+x.fillStyle='#fff9db';x.fillRect(0,0,900,600);x.strokeStyle='gold';x.lineWidth=12;x.strokeRect(10,10,880,580);
+x.fillStyle='#0a0a1f';x.fillRect(10,10,880,50);x.fillStyle='gold';x.font='bold 18px Arial';x.textAlign='center';x.fillText('⭐ ZERO SE HERO - HERO CERTIFICATE ⭐',450,42);
+x.fillStyle='#000';x.font='bold 28px Arial';x.fillText('BABUA HERO',450,150);
+x.font='16px Arial';x.fillText(idx+' Quiz Complete!',450,185);
+x.font='bold 24px Arial';x.fillStyle='#00b894';x.fillText('Score: '+sc,450,225);
+x.fillStyle='#222';x.font='italic bold 14px Arial';var sh=SHAYARI[Math.floor(idx/10)-1]||'';var lines=sh.split('\n');for(var i=0;i<lines.length;i++){x.fillText(lines[i],450,280+i*22);}
+var a=document.createElement('a');a.download='Hero-'+idx+'.png';a.href=c.toDataURL();a.click();
+}
+function loadQ(){
+if(idx>=totalQ){document.getElementById('qt').innerHTML='🏆 150 DONE! TU KING HAI BABUA! 👑';document.getElementById('opts').innerHTML='';return;}
+var cur=allQ[idx];
+document.getElementById('qt').innerText=(idx+1)+'. '+cur[0];
+document.getElementById('qno').innerText=(idx+1)+'/'+totalQ;
+document.getElementById('sc').innerText='Score: '+sc;
+document.getElementById('st').innerText='🔥 '+st;
+document.getElementById('bar').style.width=((idx/totalQ)*100)+'%';
+document.getElementById('s1').innerText='SLOT '+(Math.floor(idx/10)+1);
+document.getElementById('s2').innerText='Q '+(idx+1);
+document.getElementById('s3').innerText='LVL '+(Math.floor(idx/20)+1);
+var o=document.getElementById('opts');o.innerHTML='';
+for(var j=1;j<=3;j++){
+var b=document.createElement('button');b.className='opt';b.innerText=cur[j];
+(function(index){
+b.onclick=function(){
+var all=document.querySelectorAll('.opt');for(var k=0;k<all.length;k++) all[k].onclick=null;
+if(index===cur[4]){b.classList.add('ok');sc+=10;st++;document.getElementById('fmsg').innerText='✅ '+cur[5];}
+else{b.classList.add('no');all[cur[4]].classList.add('ok');st=0;document.getElementById('fmsg').innerText='❌ '+cur[5];}
+document.getElementById('sc').innerText='Score: '+sc;document.getElementById('st').innerText='🔥 '+st;
+setTimeout(function(){idx++;document.getElementById('fmsg').innerText='';if(idx%10===0) showCert();loadQ();},1100);
+};
+})(j-1);
+o.appendChild(b);
+}
+}
+loadQ();
+</script>
+</body>
+</html>
