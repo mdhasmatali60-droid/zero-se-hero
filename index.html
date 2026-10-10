@@ -19,3 +19,16 @@ function showLB(){spinCard.classList.add('hidden');lbCard.classList.remove('hidd
 function showCert(){lbCard.classList.add('hidden');certCard.classList.remove('hidden');cn.innerText="HASMAT";cc.innerText=co;cb.innerText=Object.keys(owned).length;cq.innerText=5;if(!babaOn)toggleBaba();speak("Shabash babua! Zero se hero ban gaya! Tu to wolf of dalal street ban gaya!");d(250,0.6);}
 render();draw(0);
 </script></body></html>
+<button class="btn" style="background:#ff6b6b;color:#fff" onclick="startQuiz(1)">😂 20 FUNNY MUHAWARE QUIZ</button>
+<button class="btn" style="background:#74b9ff;color:#000" onclick="showPoems()">🧒 LKG POEMS - Twinkle Twinkle</button>
+</div><div class="card" id="poemCard"><h3>🧒 LKG POEMS</h3><div id="poemList"></div></div>
+var POEMS=[
+{t:"Twinkle Twinkle",e:"⭐",p:"Twinkle twinkle little star, how I wonder what you are, up above the world so high, like a diamond in the sky!"},
+{t:"Johny Johny",e:"👦",p:"Johny Johny yes papa, eating sugar no papa, telling lies no papa, open your mouth ha ha ha!"},
+{t:"Baa Baa Black Sheep",e:"🐑",p:"Baa baa black sheep have you any wool, yes sir yes sir three bags full!"},
+{t:"Lakdi Ki Kaathi",e:"🐴",p:"Lakdi ki kaathi, kaathi pe ghoda, ghode ki dum pe jo mara hathauda!"},
+{t:"Machli Jal Ki Rani",e:"🐟",p:"Machli jal ki rani hai, jeevan uska paani hai, haath lagao dar jayegi, bahar nikalo mar jayegi!"},
+{t:"Aloo Kachaloo",e:"🥔",p:"Aloo kachaloo beta kahan gaye the, bandar ki tokri me so rahe the!"}
+];
+function showPoems(){var h="";POEMS.forEach((po,i)=>{h+=`<div style="border:2px solid #74b9ff;border-radius:12px;padding:10px;margin:6px 0;display:flex;justify-content:space-between;align-items:center"><div><b>${po.e} ${po.t}</b><br><small>${po.p.slice(0,30)}...</small></div><div><button style="background:#6c5ce7;color:#fff;border:none;padding:8px 14px;border-radius:20px" onclick="speakPoem(${i})">🔊 Sunao</button></div></div>`});document.getElementById('poemList').innerHTML=h;window.scrollTo(0,document.getElementById('poemCard').offsetTop);}
+function speakPoem(i){if(!babaOn)toggleBaba();speak(POEMS[i].p);vEmoji.innerText=POEMS[i].e;vTitle.innerText=POEMS[i].t;vText.innerText=POEMS[i].p;}
