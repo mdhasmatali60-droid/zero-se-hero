@@ -19,7 +19,25 @@ input{width:100%;padding:14px;border-radius:10px;border:none;text-align:center;f
 <h2 style="color:#ffeb3b">150 UNIQUE •<br>NAME WALA</h2>
 <p>Certificate pe tera naam ayega! Naam likh ke START dabao</p>
 <input id="playerNameInput" value="Hasmat">
-<button class="btn" onclick="enableSound()">👶🥁 START - NAAM KE SAATH!</button>
+function enableSound(){
+var box=document.getElementById('enableBox');
+box.style.display='none';
+var qbox=document.getElementById('quizBox');
+qbox.style.display='block';
+var n=document.getElementById('playerNameInput').value;
+if(n.length<2){n="BABUA";}
+n=n.toUpperCase();
+document.getElementById('welcome').innerText="Welcome "+n;
+}
+var box=document.getElementById('enableBox');
+box.style.display='none';
+var qbox=document.getElementById('quizBox');
+qbox.style.display='block';
+var n=document.getElementById('playerNameInput').value;
+if(n.length<2){n="BABUA";}
+n=n.toUpperCase();
+document.getElementById('welcome').innerText="Welcome "+n;
+}
 </div>
 </div>
 <div id="quizBox">
