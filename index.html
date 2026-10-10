@@ -1,132 +1,47 @@
-<!DOCTYPE html><html lang="hi"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>ZERO SE HERO - HASMAT EDITION</title>
-<style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif}
-body{background:linear-gradient(135deg,#0f0c29,#302b63,#24243e);color:#fff;min-height:100vh;display:flex;align-items:center;justify-content:center;padding:15px}
-.app{width:100%;max-width:420px;background:rgba(255,255,255,0.1);backdrop-filter:blur(20px);border-radius:25px;padding:20px;border:1px solid rgba(255,255,255,0.2);box-shadow:0 20px 40px rgba(0,0,0,0.4)}
-.logo{width:90px;height:90px;border-radius:50%;margin:0 auto 15px;display:block;border:3px solid #ffd700;object-fit:cover;background:#fff}
-h1{text-align:center;font-size:28px;background:linear-gradient(to right,#ffd700,#ff8c00);-webkit-background-clip:text;-webkit-text-fill-color:transparent;font-weight:900}
-.sub{text-align:center;opacity:0.8;margin-bottom:15px;font-size:13px}
-.card{background:rgba(0,0,0,0.3);padding:15px;border-radius:15px;margin:12px 0}
-.btn{width:100%;padding:14px;border:none;border-radius:12px;font-weight:700;font-size:16px;cursor:pointer;margin:8px 0;transition:0.3s}
-.btn-gold{background:linear-gradient(45deg,#ffd700,#ff8c00);color:#000}
-.btn-opt{background:rgba(255,255,255,0.9);color:#000;text-align:left;padding:12px 15px}
-.btn-opt.correct{background:#00ff88!important}
-.btn-opt.wrong{background:#ff4757!important;color:#fff}
-.progress{height:8px;background:rgba(255,255,255,0.2);border-radius:10px;overflow:hidden;margin:10px 0}
-.bar{height:100%;background:linear-gradient(90deg,#ffd700,#ff8c00);width:0%;transition:0.5s}
-.shabash{position:fixed;top:50%;left:50%;transform:translate(-50%,-50%) scale(0);background:linear-gradient(135deg,#ffd700,#ff6b00);color:#000;padding:25px 35px;border-radius:20px;font-size:22px;font-weight:900;z-index:99;transition:0.4s;text-align:center;box-shadow:0 0 30px #ffd700}
-.shabash.show{transform:translate(-50%,-50%) scale(1)}
-#spinCanvas{width:100%;max-width:300px;margin:10px auto;display:block}
-.cert{background:#fff;color:#000;padding:20px;border-radius:15px;text-align:center;border:5px double #ffd700}
-.cert h2{color:#d4af37;font-size:24px}
-input{width:100%;padding:12px;border-radius:10px;border:none;margin:10px 0;font-size:16px}
-.hidden{display:none}
-</style></head><body>
-<div class="app">
-<img src="IMG_7295.jpeg" class="logo" onerror="this.src='https://i.imgur.com/8Km9tLL.png'">
-<h1>ZERO SE HERO</h1><div class="sub">HASMAT SPECIAL EDITION - 150 Q</div>
-
-<div id="startBox" class="card">
-<h3>👶 Apna Naam Likho</h3>
-<input id="playerName" value="HASMAT" placeholder="Naam likho">
-<button class="btn btn-gold" onclick="startGame()">🚀 GAME START KARO</button>
-<p style="font-size:12px;opacity:0.7;margin-top:10px">Features: Shabash Babua + Spin + Certificate</p>
-</div>
-
-<div id="quizBox" class="hidden">
-<div style="display:flex;justify-content:space-between;font-size:13px"><span id="qCount">1/150</span><span id="scoreBox">Score: 0</span></div>
-<div class="progress"><div id="bar" class="bar"></div></div>
-<div class="card"><h3 id="question" style="font-size:17px"></h3></div>
-<div id="options"></div>
-</div>
-
-<div id="spinBox" class="hidden card" style="text-align:center">
-<h2>🎡 SPIN & WIN!</h2><p>5 sawal pure! Chakka ghumao</p>
-<canvas id="spinCanvas" width="300" height="300"></canvas>
-<button class="btn btn-gold" onclick="spinWheel()">🎯 SPIN KARO</button>
-<h3 id="spinResult"></h3>
-<button class="btn" style="background:#fff;color:#000" onclick="closeSpin()">Continue Quiz ➡️</button>
-</div>
-
-<div id="certBox" class="hidden">
-<div class="cert" id="cert">
-<h2>🏆 CERTIFICATE 🏆</h2>
-<p style="margin:15px 0">Ye pramanit kiya jata hai ki</p>
-<h1 id="certName" style="color:#000;-webkit-text-fill-color:#000;font-size:28px">HASMAT</h1>
-<p>ne <b>ZERO SE HERO</b> me</p>
-<h2 id="certScore" style="font-size:30px;color:#ff6b00">0/150</h2>
-<p>ank prapt kiye</p>
-<p id="certDate" style="margin-top:10px;font-size:12px"></p>
-<p style="margin-top:10px">🎉 <b>Shabash Babua! Tu to Hero hai!</b> 🎉</p>
-</div>
-<button class="btn btn-gold" onclick="downloadCert()">📥 Certificate Download Karo</button>
-<button class="btn" style="background:#fff;color:#000" onclick="location.reload()">🔁 Fir Se Khelo</button>
-</div>
-</div>
-
-<div id="shabash" class="shabash">Shabash Babua! 👶🔥</div>
-
 <script>
-var playerName="HASMAT";
 var QUESTIONS=[
-{q:"1. Bharat ka pehla satellite kaunsa tha?",o:["Aryabhata","Bhaskara","Rohini","INSAT"],a:0},
-{q:"2. Computer ka pitamah kise kehte hain?",o:["Charles Babbage","Newton","Edison","Einstein"],a:0},
-{q:"3. Ganga nadi kahan se nikalti hai?",o:["Gangotri","Yamunotri","Amarnath","Kedarnath"],a:0},
-{q:"4. Tiranga kisne design kiya?",o:["Pingali Venkayya","Gandhi ji","Nehru","Patel"],a:0},
-{q:"5. Bharat ka rashtriya pashu?",o:["Bagh","Sher","Hathi","Cheeta"],a:0},
-{q:"6. 0 ka avishkar kisne kiya?",o:["Aryabhata","Varahmihir","Bhaskar","Brahmagupta"],a:3},
-{q:"7. Taj Mahal kahan hai?",o:["Agra","Delhi","Jaipur","Lucknow"],a:0},
-{q:"8. Bharat ka sabse bada rajya?",o:["Rajasthan","MP","UP","Maharashtra"],a:0},
-{q:"9. CPU ka full form?",o:["Central Processing Unit","Computer Processing Unit","Central Power Unit","Control Processing Unit"],a:0},
-{q:"10. HTML ka matlab?",o:["Hyper Text Markup Language","High Text Markup Language","Hyper Tabular Markup Language","None"],a:0}
+{q:"Chota Bheem ko kya pasand hai? 😋",o:["Laddoo","Pizza","Burger","Samosa"],a:0},
+{q:"Motu ka best friend kaun? 🤝",o:["Patlu","Ghasitaram","Dr.Jhatka","Chingum"],a:0},
+{q:"Billi kya bolti hai? 🐱",o:["Meow Meow","Bhow Bhow","Choo Choo","Oink Oink"],a:0},
+{q:"Hathi ki naak ko kya kehte? 🐘",o:["Soond","Poonch","Seeng","Kaana"],a:0},
+{q:"Ice-cream thandi ya garam? 🍦",o:["Thandi","Garam","Teekhi","Kadvi"],a:0},
+{q:"Superman udd sakta hai? 🦸",o:["Haan!","Nahi","Thoda","Raat ko"],a:0},
+{q:"Indradhanush me kitne rang? 🌈",o:["7","5","10","3"],a:0},
+{q:"A for? 🍎",o:["Apple","Aeroplane","Ant","All - Sab sahi!"],a:3},
+{q:"Machli kahan rehti? 🐟",o:["Paani me","Ped par","Ghar me","Hawa me"],a:0},
+{q:"Bandar ko kya pasand? 🐒",o:["Kela","Laptop","Jalebi","Chai"],a:0},
+{q:"Doraemon ke paas kya? 🤖",o:["Anywhere Door","Lathi","Cycle","Kite"],a:0},
+{q:"Gol kya hota? ⚽",o:["Ball","Book","Pen","Table"],a:0},
+{q:"Cycle me kitne pahiye? 🚲",o:["2","4","1","10"],a:0},
+{q:"Jungle ka raja? 👑",o:["Sher","Billi","Chooha","Kutta"],a:0},
+{q:"Teddy soft hota? 🧸",o:["Haan soft","Pathar jaisa","Kaante wala","Paani"],a:0},
+{q:"Tom and Jerry me billi? 🐱",o:["Tom","Jerry","Spike","Tyke"],a:0},
+{q:"Suraj kab nikalta? ☀️",o:["Subah","Raat","Dopahar raat","Kabhi nahi"],a:0},
+{q:"Mickey ka dost? 🐭",o:["Donald Duck","Sher","Haathi","Saanp"],a:0},
+{q:"Barish me kya girta? 🌧️",o:["Paani","Laddoo","Paise","Toffee"],a:0},
+{q:"1+1=? 🤔",o:["2","11","1","0"],a:0},
+{q:"Gaay kya deti? 🐄",o:["Doodh","Cola","Chips","KurKure"],a:0},
+{q:"5 ungli ek haath me? ✋",o:["5","10","2","8"],a:0},
+{q:"Jalebi shape? 🥨",o:["Gol gol","Chokor","Lamba","Trikon"],a:0},
+{q:"Pikachu kaun? ⚡",o:["Pokemon","Digimon","Dog","Cat"],a:0},
+{q:"Penguin udd sakta? 🐧",o:["Nahi, tairta hai!","Haan","Thoda","Sunday ko"],a:0}
 ];
-for(let i=21;i<=150;i++){let b=["Option A","Option B","Option C","Option D"];QUESTIONS.push({q:i+". Sample Question "+i+" - Ye tera GK power test hai?",o:b,a:Math.floor(Math.random()*4)})}
-var current=0,score=0,asked=[],total=150;
-var audioCtx;
-function playShabash(){try{audioCtx=new (window.AudioContext||window.webkitAudioContext)();var o=audioCtx.createOscillator();var g=audioCtx.createGain();o.connect(g);g.connect(audioCtx.destination);o.frequency.value=800;g.gain.value=0.3;o.start();setTimeout(()=>{o.frequency.value=1200},100);setTimeout(()=>{o.stop()},400)}catch(e){}
-let s=document.getElementById('shabash');s.classList.add('show');setTimeout(()=>s.classList.remove('show'),1200)}
-
-function startGame(){playerName=document.getElementById('playerName').value||"HASMAT";document.getElementById('startBox').classList.add('hidden');document.getElementById('quizBox').classList.remove('hidden');asked=[];current=0;score=0;nextQ()}
-
-function nextQ(){
-if(current>=20){showCert();return}
-if(current>0 && current%5==0){showSpin();return}
-let idx;do{idx=Math.floor(Math.random()*QUESTIONS.length)}while(asked.includes(idx));asked.push(idx);
-let q=QUESTIONS[idx];document.getElementById('question').innerText=q.q;document.getElementById('qCount').innerText=(current+1)+"/20";document.getElementById('scoreBox').innerText="Score: "+score;document.getElementById('bar').style.width=((current)/20*100)+"%";
-let optDiv=document.getElementById('options');optDiv.innerHTML="";q.o.forEach((op,i)=>{let b=document.createElement('button');b.className='btn btn-opt';b.innerText=String.fromCharCode(65+i)+". "+op;b.onclick=()=>check(i,q.a,b);optDiv.appendChild(b)})}
-
-function check(sel,ans,btn){
-let btns=document.querySelectorAll('.btn-opt');btns.forEach(b=>b.disabled=true);
-if(sel==ans){btn.classList.add('correct');score++;playShabash();}else{btn.classList.add('wrong');btns[ans].classList.add('correct')}
-document.getElementById('scoreBox').innerText="Score: "+score;
-setTimeout(()=>{current++;nextQ()},1300)
-}
-
-function showSpin(){document.getElementById('quizBox').classList.add('hidden');document.getElementById('spinBox').classList.remove('hidden');drawWheel()}
-function closeSpin(){document.getElementById('spinBox').classList.add('hidden');document.getElementById('quizBox').classList.remove('hidden');nextQ()}
-
-var wheelPrizes=["10 Points","Shabash Babua!","20 Points","Try Again","50 Points Jackpot!","5 Points","Hero Bonus!","0 Point"];
-var angle=0;
-function drawWheel(){
-let c=document.getElementById('spinCanvas'),ctx=c.getContext('2d'),cx=150,cy=150,r=130;
-ctx.clearRect(0,0,300,300);
-for(let i=0;i<8;i++){ctx.beginPath();ctx.moveTo(cx,cy);ctx.arc(cx,cy,r,angle+i*Math.PI/4,angle+(i+1)*Math.PI/4);ctx.closePath();ctx.fillStyle=i%2==0?"#ffd700":"#ff8c00";ctx.fill();ctx.strokeStyle="#000";ctx.stroke();
-ctx.save();ctx.translate(cx,cy);ctx.rotate(angle+i*Math.PI/4+Math.PI/8);ctx.fillStyle="#000";ctx.font="bold 12px sans-serif";ctx.fillText(wheelPrizes[i],40,5);ctx.restore();}
-ctx.beginPath();ctx.arc(cx,cy,20,0,Math.PI*2);ctx.fillStyle="#000";ctx.fill();
-ctx.fillStyle="#fff";ctx.beginPath();ctx.moveTo(150,10);ctx.lineTo(140,30);ctx.lineTo(160,30);ctx.fill();
-}
-function spinWheel(){
-let spin=Math.random()*2000+1000;let intv=setInterval(()=>{angle+=0.2;drawWheel()},20);
-setTimeout(()=>{clearInterval(intv);let prize=wheelPrizes[Math.floor(Math.random()*8)];document.getElementById('spinResult').innerText="🎉 Jeeta: "+prize+"!";if(prize.includes("Point")){let pts=parseInt(prize)||0;score+=pts;}},3000)
-}
-
-function showCert(){
-document.getElementById('quizBox').classList.add('hidden');document.getElementById('spinBox').classList.add('hidden');document.getElementById('certBox').classList.remove('hidden');
-document.getElementById('certName').innerText=playerName;
-document.getElementById('certScore').innerText=score+"/20";
-document.getElementById('certDate').innerText=new Date().toLocaleDateString('hi-IN')+" - ZERO SE HERO";
-}
-function downloadCert(){
-let c=document.getElementById('cert');let w=window.open('','_blank');w.document.write('<html><body>'+c.outerHTML+'<script>window.print()<\/script></body></html>');w.document.close();
-}
+var playerName="HASMAT",current=0,score=0,coins=0,asked=[],TOTAL_PER_LEVEL=10,level=1;
+var dhol=document.getElementById('dhol'),correctS=document.getElementById('correctS'),dhol2=document.getElementById('dhol2');
+function playDhol(){dhol.currentTime=0;dhol.play().catch(()=>{});setTimeout(()=>dhol2.play().catch(()=>{}),400)}
+function startGame(){playerName=document.getElementById('playerName').value||"HASMAT";document.getElementById('startBox').classList.add('hidden');document.getElementById('quizBox').classList.remove('hidden');playDhol();asked=[];current=0;score=0;coins=0;level=1;updateStats();nextQ()}
+function updateStats(){document.getElementById('coinBox').innerText=coins;document.getElementById('levelBox').innerText=level;document.getElementById('scoreBoxTop').innerText=score;document.getElementById('scoreBox').innerText="⭐ "+score;document.getElementById('levelText').innerText="Level "+level;document.getElementById('qCount').innerText=(current+1)+"/"+TOTAL_PER_LEVEL}
+function nextQ(){if(current>=TOTAL_PER_LEVEL){showLevelUp();return}let idx;do{idx=Math.floor(Math.random()*QUESTIONS.length)}while(asked.includes(idx));asked.push(idx);let q=QUESTIONS[idx];document.getElementById('question').innerText=q.q;updateStats();document.getElementById('bar').style.width=(current/TOTAL_PER_LEVEL*100)+"%";let optDiv=document.getElementById('options');optDiv.innerHTML="";q.o.forEach((op,i)=>{let b=document.createElement('button');b.className="btn opt";b.innerHTML="<span style='background:#ffeaa7;padding:2px 8px;border-radius:8px'>"+String.fromCharCode(65+i)+"</span> "+op;b.onclick=()=>check(i,q.a,b);optDiv.appendChild(b)})}
+function check(sel,ans,btn){let btns=document.querySelectorAll('.opt');btns.forEach(b=>b.disabled=true);if(sel==ans){btn.classList.add('correct');score++;coins+=10;correctS.play().catch(()=>{});if(Math.random()<0.15){showJackpot();coins+=100}if('speechSynthesis' in window){let u=new SpeechSynthesisUtterance('Shabash Babua, bahut badhiya');u.lang='hi-IN';u.rate=1.1;u.pitch=1.3;speechSynthesis.speak(u);}showShabash()}else{btn.classList.add('wrong');btns[ans].classList.add('correct');if('speechSynthesis' in window){let u=new SpeechSynthesisUtterance('Koi baat nahi babu, agla sahi hoga');u.lang='hi-IN';u.pitch=1.2;speechSynthesis.speak(u);}setTimeout(()=>{let s=document.getElementById('shabash');s.querySelector('.shabash-inner').innerHTML="<div style='font-size:60px'>🤗💛</div><div style='font-size:20px;font-weight:900'>Koi baat nahi Babu! Agla pakka sahi! 💛</div>";s.classList.add('show');setTimeout(()=>{s.classList.remove('show');s.querySelector('.shabash-inner').innerHTML="<div style='font-size:70px'>👶💛</div><div style='font-size:26px;font-weight:900;color:#e17055'>Shabash Babua!</div><div>🌟 Sahi Jawab! 🌟</div><div style='font-size:14px;background:#ffeaa7;padding:4px 10px;border-radius:20px;margin-top:6px'>💰 <span id='shabashCoin'>+10 Coins</span></div><div style='font-size:32px'>🍫🍭🎈</div>"},1200)},200)}updateStats();setTimeout(()=>{current++;nextQ()},1400)}
+function showShabash(){document.getElementById('shabashCoin').innerText="+"+10+" Coins = "+coins+" 💰";let s=document.getElementById('shabash');s.classList.add('show');playDhol();setTimeout(()=>s.classList.remove('show'),1600)}
+function showJackpot(){let j=document.getElementById('jackpotBox');j.classList.add('show');playDhol();setTimeout(()=>j.classList.remove('show'),2000)}
+function showLevelUp(){document.getElementById('quizBox').classList.add('hidden');document.getElementById('levelUpBox').classList.remove('hidden');document.getElementById('levelUpTitle').innerText="Level "+level+" Complete! 🎉";document.getElementById('levelUpMsg').innerText="Wah "+playerName+"! 10 sawal pure!";document.getElementById('levelCoins').innerText=coins;document.getElementById('levelTotalCoins').innerText=coins;playDhol()}
+function showSpin(){document.getElementById('levelUpBox').classList.add('hidden');document.getElementById('spinBox').classList.remove('hidden');drawWheel()}
+function closeSpinAndNextLevel(){document.getElementById('spinBox').classList.add('hidden');showCert()}
+function showCert(){document.getElementById('spinBox').classList.add('hidden');document.getElementById('levelUpBox').classList.add('hidden');document.getElementById('quizBox').classList.add('hidden');document.getElementById('certBox').classList.remove('hidden');document.getElementById('certName').innerText=playerName;document.getElementById('certLevel').innerText=level;document.getElementById('certCoins').innerText=coins;document.getElementById('certScore').innerText=score;document.getElementById('certDate').innerText=new Date().toLocaleDateString('hi-IN',{day:'numeric',month:'long',year:'numeric'})+" | HASMAT KIDS";playDhol()}
+function nextLevel(){level++;current=0;document.getElementById('certBox').classList.add('hidden');document.getElementById('quizBox').classList.remove('hidden');updateStats();nextQ();playDhol()}
+var angle=0,prizes=["💰 20 Coins","🍫 Chocolate","🎁 Gift +10","💎 50 Jackpot!","🍭 Lollipop","🎈 15 Coins","🍦 Ice Cream","😊 +5 Bonus"];
+function drawWheel(){let c=document.getElementById('spinCanvas'),ctx=c.getContext('2d');ctx.clearRect(0,0,320,320);for(let i=0;i<8;i++){ctx.beginPath();ctx.moveTo(160,160);ctx.arc(160,160,135,angle+i*Math.PI/4,angle+(i+1)*Math.PI/4);ctx.closePath();ctx.fillStyle=['#ffe66d','#ff6b6b','#48dbfb','#1dd1a1','#f368e0','#ff9f43','#00d2d3','#fab1a0'][i];ctx.fill();ctx.strokeStyle="#fff";ctx.lineWidth=3;ctx.stroke();ctx.save();ctx.translate(160,160);ctx.rotate(angle+i*Math.PI/4+Math.PI/8);ctx.fillStyle="#2d3436";ctx.font="900 11px sans-serif";ctx.fillText(prizes[i],35,4);ctx.restore()}ctx.beginPath();ctx.arc(160,160,28,0,Math.PI*2);ctx.fillStyle="#fff";ctx.fill();ctx.strokeStyle="#fdcb6e";ctx.lineWidth=4;ctx.stroke();ctx.fillStyle="#e17055";ctx.font="900 10px sans-serif";ctx.fillText("HASMAT",135,165)}
+function spinWheel(){let btn=document.getElementById('spinBtn');btn.disabled=true;let final=angle+Math.random()*10+10;let start=angle,startTime=null;function anim(t){if(!startTime) startTime=t;let p=Math.min((t-startTime)/3000,1);let ease=1-Math.pow(1-p,3);angle=start+(final-start)*ease;drawWheel();if(p<1)requestAnimationFrame(anim);else{let idx=Math.floor((8-(angle%(Math.PI*2))/(Math.PI/4))%8);let prize=prizes[idx];let add=0;if(prize.includes('20')) add=20;else if(prize.includes('50')) add=50;else if(prize.includes('15')) add=15;else if(prize.includes('10')) add=10;else if(prize.includes('5')) add=5;else add=10;coins+=add;document.getElementById('spinResult').innerText="Jeeta: "+prize+" +"+add+" Coins! 🎉";document.getElementById('coinBox').innerText=coins;if(prize.includes('Jackpot')){showJackpot();coins+=50}btn.disabled=false;playDhol()}}requestAnimationFrame(anim)}
+drawWheel();
 </script></body></html>
